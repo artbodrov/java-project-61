@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'application'
+    id 'checkstyle'
+
 
 }
 
@@ -29,4 +31,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+checkstyle {
+    toolVersion '9.2.1'
 }
