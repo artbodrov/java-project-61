@@ -13,10 +13,7 @@ public class Engine {
         System.out.print("May I have your name? ");
         userName = Cli.inuptName();
         System.out.println("Hello, " + userName + "!");
-        //  playGame(isCorrect);
     }
-
-
 
     public static boolean question(String result) {
         boolean flag = true;
@@ -43,7 +40,7 @@ public class Engine {
         return flag;
     }
 
-    public static void endGame(){
+    public static void endGame() {
         System.out.println("Congratulations, "
                 + userName
                 + "!");

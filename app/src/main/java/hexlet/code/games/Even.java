@@ -6,18 +6,15 @@ import java.util.Random;
 
 public class Even {
 
-    private static int number;
-    private static String result;
-    private static boolean isCorrect;
-
     public static void theGame() {
-        isCorrect = true;
+        boolean isCorrect = true;
         Engine.startGame();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Random random = new Random();
         for (var i = 0; i < 3; i++) {
-            if (isCorrect == true) {
-                number = random.nextInt(99) + 1;
+            if (isCorrect) {
+                int number = random.nextInt(99) + 1;
+                String result;
                 if (number % 2 == 0) {
                     result = "yes";
                 } else {

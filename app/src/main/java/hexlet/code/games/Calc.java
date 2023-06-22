@@ -6,18 +6,15 @@ import java.util.Random;
 
 public class Calc {
 
-    private static int number;
-    private static String result;
-    private static boolean isCorrect;
-
     public static void theGame() {
-        isCorrect = true;
+        boolean isCorrect = true;
+        int number = 0;
         Engine.startGame();
         System.out.println("What is the result of the expression?");
         Random random = new Random();
         String[] operators = {"+", "-", "*"};
         for (var i = 0; i < 3; i++) {
-            if (isCorrect == true) {
+            if (isCorrect) {
                 int randomOperatorIndex = new java.util.Random().nextInt(operators.length);
                 int num1 = random.nextInt(9) + 1;
                 int num2 = random.nextInt(9) + 1;
@@ -25,21 +22,21 @@ public class Calc {
                 System.out.print("Question: ");
 
                 switch (randomOperatorIndex) {
-
-                    case 0:
+                    case 0 -> {
                         System.out.println(num1 + " + " + num2);
                         number = num1 + num2;
-                        break;
-                    case 1:
+                    }
+                    case 1 -> {
                         System.out.println(num1 + " - " + num2);
                         number = num1 - num2;
-                        break;
-                    case 2:
+                    }
+                    case 2 -> {
                         System.out.println(num1 + " * " + num2);
                         number = num1 * num2;
-                        break;
+                    }
+                    default -> System.out.println("Oh... really?!!");
                 }
-                result = String.valueOf(number);
+                String result = String.valueOf(number);
                 isCorrect = Engine.question(result);
             } else {
                 break;
