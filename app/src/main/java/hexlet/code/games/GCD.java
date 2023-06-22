@@ -17,11 +17,13 @@ public class GCD {
                 int num2 = random.nextInt(99) + 1;
                 System.out.print("Question: ");
                 System.out.println(num1 + " " + num2);
-                while (num1 != 0 && num2 != 0)
-                    if (num1 > num2)
+                while (num1 != 0 && num2 != 0) {
+                    if (num1 > num2) {
                         num1 = num1 % num2;
-                    else
+                    } else {
                         num2 = num2 % num1;
+                    }
+                }
                 String result = String.valueOf(num1 + num2);
                 //   System.out.println(num1 + " " + num2);
                 isCorrect = Engine.question(result);
@@ -33,5 +35,4 @@ public class GCD {
             }
         }
     }
-
 }
