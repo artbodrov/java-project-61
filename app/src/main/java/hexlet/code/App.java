@@ -1,9 +1,9 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import static hexlet.code.Engine.cycleOfGames;
 
 public class App {
 
@@ -24,21 +24,8 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         try {
             choice = scanner.nextInt();
-            if (choice == 2) {
-                Even.theGame();
-            }
-            if (choice == 3) {
-                Calc.theGame();
-            }
-            if (choice == 4) {
-                GCD.theGame();
-            }
-            if (choice == 5) {
-                Progression.theGame();
-            }
-            if (choice == 6) {
-                Prime.theGame();
-            }
+            cycleOfGames(choice);
+
         } catch (InputMismatchException e) {
             e.printStackTrace();
         }
