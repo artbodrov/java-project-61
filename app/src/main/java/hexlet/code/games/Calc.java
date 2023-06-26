@@ -7,12 +7,14 @@ public class Calc {
     public static String theGame() {
 
         int number = 0;
+        int j = 9;
+        int k = 9;
         Random random = new Random();
         String[] operators = {"+", "-", "*"};
 
         int randomOperatorIndex = new java.util.Random().nextInt(operators.length);
-        var num1 = random.nextInt(9) + 1;
-        var num2 = random.nextInt(9) + 1;
+        int num1 = random.nextInt(j) + 1;
+        int num2 = random.nextInt(k) + 1;
 
         switch (randomOperatorIndex) {
             case 0 -> {
