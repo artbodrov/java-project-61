@@ -19,16 +19,20 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
+        try {
+            Scanner scanner = new Scanner(System.in);
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 2, 3, 4, 5, 6 ->
+                    cycleOfGames(choice);
 
-        Scanner scanner = new Scanner(System.in);
-        choice = scanner.nextInt();
-        switch (choice) {
-            case 2, 3, 4, 5, 6 -> {
-                cycleOfGames(choice);
+
+                default -> System.out.println();
+
+
             }
-            default -> {
-                choice = scanner.nextInt();
-            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }
