@@ -27,7 +27,7 @@ public class App {
                     cycleOfGames(choice);
 
 
-                default -> System.out.println();
+                default -> cycleOfGames(2);
 
 
             }
