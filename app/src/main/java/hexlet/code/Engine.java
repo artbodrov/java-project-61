@@ -1,9 +1,10 @@
 package hexlet.code;
 
 
+
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
+import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
@@ -15,6 +16,11 @@ public class Engine {
     private static String gcd = "Find the greatest common divisor of given numbers.";
     private static String calc = "What is the result of the expression?";
     private static String even = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int EVEN = 2;
+    private static final int CALC = 3;
+    private static final  int GCD = 4;
+    private static final  int PROGRESSION = 5;
+    private static final  int PRIME = 6;
     private static String userName;
     private static String result;
 
@@ -65,23 +71,23 @@ public class Engine {
         for (var i = 0; i < 3; i++) {
 
             if (isCorrect) {
-                if (game == 2) {
+                if (game == EVEN) {
                     System.out.print("Question: ");
                     result = Even.theGame();
                 }
-                if (game == 3) {
+                if (game == CALC) {
                     System.out.print("Question: ");
                     result = Calc.theGame();
                 }
-                if (game == 4) {
+                if (game == GCD) {
                     System.out.print("Question: ");
-                    result = GCD.theGame();
+                    result = Gcd.theGame();
                 }
-                if (game == 5) {
+                if (game == PROGRESSION) {
                     System.out.print("Question: ");
                     result = Progression.theGame();
                 }
-                if (game == 6) {
+                if (game == PRIME) {
                     System.out.print("Question: ");
                     result = Prime.theGame();
                 }

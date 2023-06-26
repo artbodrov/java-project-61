@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class GCD {
+public class Gcd {
 
     private static final int FIRST_RANGE = 99;
     private static final int SECOND_RANGE = 99;
