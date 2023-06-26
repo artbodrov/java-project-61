@@ -11,8 +11,8 @@ public class Calc {
         String[] operators = {"+", "-", "*"};
 
         int randomOperatorIndex = new java.util.Random().nextInt(operators.length);
-        int num1 = random.nextInt(9) + 1;
-        int num2 = random.nextInt(9) + 1;
+        var num1 = random.nextInt(9) + 1;
+        var num2 = random.nextInt(9) + 1;
 
         switch (randomOperatorIndex) {
             case 0 -> {

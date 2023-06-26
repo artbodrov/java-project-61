@@ -26,12 +26,21 @@ public class App {
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
             switch (choice) {
-                case 2, 3, 4, 5, 6 -> {
-                  //  System.out.println();
-                 //   System.out.println("Welcome to the Brain Games!");
-                    cycleOfGames(choice);
+                case 2 -> {
+                    cycleOfGames(2);
                 }
-                case 1 -> startGame();
+                case 3 -> {
+                    cycleOfGames(3);
+                }
+                case 4 -> {
+                    cycleOfGames(4);
+                }
+                case 5 -> {
+                    cycleOfGames(5);
+                }
+                case 6 -> {
+                    cycleOfGames(6);
+                }
                 default -> {
                     break;
                 }

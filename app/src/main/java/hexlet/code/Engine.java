@@ -20,8 +20,6 @@ public class Engine {
 
     public static void startGame() {
 
-      //  System.out.println();
-    //    System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         userName = Cli.inuptName();
         System.out.println("Hello, " + userName + "!");
