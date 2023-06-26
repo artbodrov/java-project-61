@@ -11,6 +11,7 @@ public class App {
 
     public static void main(String[] args) {
 
+        System.out.println("Welcome to the Brain Games!");
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -26,8 +27,8 @@ public class App {
             choice = scanner.nextInt();
             switch (choice) {
                 case 2, 3, 4, 5, 6 -> {
-                    System.out.println();
-                    System.out.println("Welcome to the Brain Games!");
+                  //  System.out.println();
+                 //   System.out.println("Welcome to the Brain Games!");
                     cycleOfGames(choice);
                 }
                 case 1 -> startGame();
