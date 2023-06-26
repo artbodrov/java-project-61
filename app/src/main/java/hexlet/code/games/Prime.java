@@ -4,8 +4,9 @@ import java.util.Random;
 
 public class Prime {
     public static boolean isPrime() {
+        int j = 99;
         Random random = new Random();
-        int number = random.nextInt(99) + 2;
+        int number = random.nextInt(j) + 2;
         System.out.println(number);
         if (number <= 1) {
             return false;

@@ -7,7 +7,8 @@ public class Even {
     public static String theGame() {
         String result;
         Random random = new Random();
-        int number = random.nextInt(99) + 1;
+        int j = 99;
+        int number = random.nextInt(j) + 1;
 
         if (number % 2 == 0) {
             result = "yes";

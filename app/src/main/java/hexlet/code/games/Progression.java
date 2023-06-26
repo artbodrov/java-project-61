@@ -6,9 +6,12 @@ public class Progression {
 
     public static String theGame() {
         Random random = new Random();
-        int num1 = random.nextInt(9) + 1;
-        int num2 = random.nextInt(9) + 1;
-        int number = random.nextInt(9) + 1;
+        int m = 9;
+        int k = 9;
+        int l = 9;
+        int num1 = random.nextInt(m) + 1;
+        int num2 = random.nextInt(k) + 1;
+        int number = random.nextInt(l) + 1;
         int[] arr = new int[10];
         arr[0] = num1;
         for (var j = 1; j <= arr.length - 1; j++) {
