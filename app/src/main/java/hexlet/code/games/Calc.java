@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Calc {
 
-    private static int firstRange = 9;
-    private static int secondRange = 9;
+    private static final int firstRange = 9;
+    private static final int secondRange = 9;
 
     public static String theGame() {
 
