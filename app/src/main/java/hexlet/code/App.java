@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.cycleOfGames;
+import static hexlet.code.Engine.startGame;
 
 public class App {
 
@@ -20,12 +21,16 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         try {
+
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
             switch (choice) {
-                case 2, 3, 4, 5, 6 -> cycleOfGames(choice);
-
-                case 1 -> System.out.println();
+                case 2, 3, 4, 5, 6 -> {
+                    System.out.println();
+                    System.out.println("Welcome to the Brain Games!");
+                    cycleOfGames(choice);
+                }
+                case 1 -> startGame();
                 default -> {
                     break;
                 }
