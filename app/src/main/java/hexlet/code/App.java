@@ -23,10 +23,9 @@ public class App {
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
             switch (choice) {
-                case 2, 3, 4, 5, 6 ->
-                    cycleOfGames(choice);
+                case 2, 3, 4, 5, 6 -> cycleOfGames(choice);
 
-
+                case 1 -> System.out.println();
                 default -> {
                     break;
                 }
