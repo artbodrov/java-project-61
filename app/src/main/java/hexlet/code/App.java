@@ -27,7 +27,9 @@ public class App {
                     cycleOfGames(choice);
 
 
-                default -> cycleOfGames(2);
+                default -> {
+                    break;
+                }
 
 
             }
