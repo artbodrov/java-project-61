@@ -6,8 +6,7 @@ public class Progression {
     private static final int FIRST_RANGE = 9;
     private static final int SECOND_RANGE = 9;
     private static final int RANDOM_POSITION = 9;
-
-    private static final int[] ARR = new int[10];
+    private static final int ARRAY_LENGHT = 10;
 
     public static String theGame() {
         Random random = new Random();
@@ -15,20 +14,20 @@ public class Progression {
         int num1 = random.nextInt(FIRST_RANGE) + 1;
         int num2 = random.nextInt(SECOND_RANGE) + 1;
         int number = random.nextInt(RANDOM_POSITION) + 1;
-
-        ARR[0] = num1;
-        for (var j = 1; j <= ARR.length - 1; j++) {
-            ARR[j] = ARR[j - 1] + num2;
+        int[] arr = new int[ARRAY_LENGHT];
+        arr[0] = num1;
+        for (var j = 1; j <= arr.length - 1; j++) {
+            arr[j] = arr[j - 1] + num2;
         }
-        for (var j = 0; j < ARR.length; j++) {
+        for (var j = 0; j < arr.length; j++) {
             if (j == number) {
                 System.out.print(".. ");
             } else {
-                System.out.print(ARR[j] + " ");
+                System.out.print(arr[j] + " ");
             }
         }
         System.out.println();
-        String result = String.valueOf(ARR[number]);
+        String result = String.valueOf(arr[number]);
         return result;
     }
 }
