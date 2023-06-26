@@ -22,11 +22,9 @@ public class App {
         System.out.print("Your choice: ");
 
         Scanner scanner = new Scanner(System.in);
-        try {
             choice = scanner.nextInt();
             cycleOfGames(choice);
-        } catch (InputMismatchException e) {
-            e.printStackTrace();
+
         }
     }
-}
+
