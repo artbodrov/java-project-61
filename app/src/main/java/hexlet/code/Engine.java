@@ -1,7 +1,6 @@
 package hexlet.code;
 
 
-
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.Gcd;
@@ -18,12 +17,12 @@ public class Engine {
     private static String even = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int EVEN = 2;
     private static final int CALC = 3;
-    private static final  int GCD = 4;
-    private static final  int PROGRESSION = 5;
-    private static final  int PRIME = 6;
+    private static final int GCD = 4;
+    private static final int PROGRESSION = 5;
+    private static final int PRIME = 6;
     private static String userName;
     private static String result;
-    private static final  int CICLE = 6;
+    private static final int CYCLE = 3;
 
     public static void startGame() {
 
@@ -69,7 +68,7 @@ public class Engine {
         startGame();
         rules(game);
 
-        for (var i = 0; i < CICLE; i++) {
+        for (var i = 0; i < CYCLE; i++) {
 
             if (isCorrect) {
                 if (game == EVEN) {
