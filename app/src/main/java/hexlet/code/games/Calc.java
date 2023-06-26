@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Calc {
 
-    private static final int firstRange = 9;
-    private static final int secondRange = 9;
+    private static final int FIRST_RANGE = 9;
+    private static final int SECOND_RANGE = 9;
 
     public static String theGame() {
 
@@ -15,8 +15,8 @@ public class Calc {
         String[] operators = {"+", "-", "*"};
 
         int randomOperatorIndex = new java.util.Random().nextInt(operators.length);
-        int num1 = random.nextInt(firstRange) + 1;
-        int num2 = random.nextInt(secondRange) + 1;
+        int num1 = random.nextInt(FIRST_RANGE) + 1;
+        int num2 = random.nextInt(SECOND_RANGE) + 1;
 
         switch (randomOperatorIndex) {
             case 0 -> {

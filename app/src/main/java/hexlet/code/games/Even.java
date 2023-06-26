@@ -4,11 +4,13 @@ import java.util.Random;
 
 public class Even {
 
+    private static final int FIRST_RANGE = 99;
+
     public static String theGame() {
         String result;
         Random random = new Random();
-        int j = 99;
-        int number = random.nextInt(j) + 1;
+
+        int number = random.nextInt(FIRST_RANGE) + 1;
 
         if (number % 2 == 0) {
             result = "yes";

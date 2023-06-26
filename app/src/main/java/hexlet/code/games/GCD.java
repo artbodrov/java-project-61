@@ -4,12 +4,13 @@ import java.util.Random;
 
 public class GCD {
 
+    private static final int FIRST_RANGE = 99;
+    private static final int SECOND_RANGE = 99;
     public static String theGame() {
-        int j = 99;
-        int k = 99;
+
         Random random = new Random();
-        int num1 = random.nextInt(j) + 1;
-        int num2 = random.nextInt(k) + 1;
+        int num1 = random.nextInt(FIRST_RANGE) + 1;
+        int num2 = random.nextInt(SECOND_RANGE) + 1;
         System.out.println(num1 + " " + num2);
         while (num1 != 0 && num2 != 0) {
             if (num1 > num2) {

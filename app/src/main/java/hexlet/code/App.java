@@ -8,6 +8,12 @@ import static hexlet.code.Engine.startGame;
 public class App {
 
     public static int choice;
+    private static final int GREET = 1;
+    private static final int EVEN = 2;
+    private static final int CALC = 3;
+    private static final  int GCD = 4;
+    private static final  int PROGRESSION = 5;
+    private static final  int PRIME = 6;
 
     public static void main(String[] args) {
 
@@ -26,11 +32,11 @@ public class App {
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
             switch (choice) {
-                case 2, 3, 4, 5, 6 -> {
+                case EVEN, CALC, GCD, PROGRESSION, PRIME -> {
 
                     cycleOfGames(choice);
                 }
-                case 1 -> startGame();
+                case GREET -> startGame();
                 default -> {
                     break;
                 }
