@@ -23,6 +23,7 @@ public class Engine {
     private static final  int PRIME = 6;
     private static String userName;
     private static String result;
+    private static final  int CICLE = 6;
 
     public static void startGame() {
 
@@ -68,7 +69,7 @@ public class Engine {
         startGame();
         rules(game);
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < CICLE; i++) {
 
             if (isCorrect) {
                 if (game == EVEN) {
@@ -103,19 +104,19 @@ public class Engine {
 
     public static void rules(int q) {
         String mainRule = "WTF";
-        if (q == 2) {
+        if (q == EVEN) {
             mainRule = even;
         }
-        if (q == 3) {
+        if (q == CALC) {
             mainRule = calc;
         }
-        if (q == 4) {
+        if (q == GCD) {
             mainRule = gcd;
         }
-        if (q == 5) {
+        if (q == PROGRESSION) {
             mainRule = progression;
         }
-        if (q == 6) {
+        if (q == PRIME) {
             mainRule = prime;
         }
         System.out.println(mainRule);
