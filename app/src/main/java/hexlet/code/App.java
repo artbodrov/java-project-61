@@ -23,8 +23,12 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         choice = scanner.nextInt();
         switch (choice) {
-            case 2, 3, 4, 5, 6 -> cycleOfGames(choice);
-            default -> System.out.println("bye");
+            case 2, 3, 4, 5, 6 -> {
+                cycleOfGames(choice);
+            }
+            default -> {
+                break;
+            }
         }
     }
 }
