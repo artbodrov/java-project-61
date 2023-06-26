@@ -10,7 +10,7 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class Engine {
-    private static String progression = "Please enter the game number and press Enter.";
+    private static String progression = "What number is missing in the progression?";
     private static String prime = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static String gcd = "Find the greatest common divisor of given numbers.";
     private static String calc = "What is the result of the expression?";
