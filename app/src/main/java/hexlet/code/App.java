@@ -27,7 +27,7 @@ public class App {
                 cycleOfGames(choice);
             }
             default -> {
-                break;
+                choice = scanner.nextInt();
             }
         }
     }
