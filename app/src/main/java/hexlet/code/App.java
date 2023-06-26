@@ -25,29 +25,11 @@ public class App {
 
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
-            switch (choice) {
-                case 2 -> {
-                    cycleOfGames(2);
-                }
-                case 3 -> {
-                    cycleOfGames(3);
-                }
-                case 4 -> {
-                    cycleOfGames(4);
-                }
-                case 5 -> {
-                    cycleOfGames(5);
-                }
-                case 6 -> {
-                    cycleOfGames(6);
-                }
-                default -> {
-                    break;
-                }
-
-
+            if (choice > 1 && choice < 7) {
+                cycleOfGames(choice);
             }
-        } catch (Exception e) {
+        } catch (
+                Exception e) {
             throw new RuntimeException(e);
         }
     }
