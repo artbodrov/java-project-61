@@ -4,17 +4,19 @@ import java.util.Random;
 
 public class Calc {
 
+    private static int firstRange = 9;
+    private static int secondRange = 9;
+
     public static String theGame() {
 
         int number = 0;
-        int j = 9;
-        int k = 9;
+
         Random random = new Random();
         String[] operators = {"+", "-", "*"};
 
         int randomOperatorIndex = new java.util.Random().nextInt(operators.length);
-        int num1 = random.nextInt(j) + 1;
-        int num2 = random.nextInt(k) + 1;
+        int num1 = random.nextInt(firstRange) + 1;
+        int num2 = random.nextInt(secondRange) + 1;
 
         switch (randomOperatorIndex) {
             case 0 -> {
