@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.cycleOfGames;
@@ -22,9 +21,12 @@ public class App {
         System.out.print("Your choice: ");
 
         Scanner scanner = new Scanner(System.in);
-            choice = scanner.nextInt();
-            cycleOfGames(choice);
+        choice = scanner.nextInt();
 
+        switch (choice) {
+            case 2, 3, 4, 5, 6 -> cycleOfGames(choice);
+
+            default -> System.out.println("bye");
         }
     }
-
+}
