@@ -3,28 +3,30 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class Prime {
-    public static String theGame() {
+    public static boolean isPrime() {
         Random random = new Random();
-        String result = "WTF";
         int number = random.nextInt(99) + 2;
-
+        System.out.println(number);
         if (number <= 1) {
-            result = "no";
+            return false;
         }
-        if (number == 2 || number == 3) {
-            result = "yes";
-        }
-        if (number % 2 == 0 || number % 3 == 0) {
-            result = "no";
-        }
-        for (int i = 5; i <= Math.sqrt(number); i = i + 6) {
-            if (number % i == 0 || number % (i + 2) == 0) {
-                result = "no";
-            } else {
-                result = "yes";
+        for (int i = 2; i <= number / 2; i++) {
+            if (number % i == 0) {
+                return false;
             }
         }
-        System.out.println(number);
+        return true;
+    }
+
+    public static String theGame() {
+        boolean flag = true;
+        String result = "WTF";
+        if (flag == isPrime()) {
+            result = "yes";
+        } else {
+            result = "no";
+        }
+
         return result;
     }
 }
