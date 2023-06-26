@@ -1,6 +1,9 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/artbodrov/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/artbodrov/java-project-61/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bc953fb0ab378995dab3/maintainability)](https://codeclimate.com/github/artbodrov/java-project-61/maintainability)
+
+
+
 ![001](https://github.com/artbodrov/java-project-61/assets/105545174/2abb7df8-ce8c-43a9-9c95-2c8c75983772)
 ![002](https://github.com/artbodrov/java-project-61/assets/105545174/fd9cd024-edf0-4494-a45a-c94f577a7e09)
 ![003](https://github.com/artbodrov/java-project-61/assets/105545174/c16a3fac-1e7c-4dd9-9bcc-d8c8c863da00)
