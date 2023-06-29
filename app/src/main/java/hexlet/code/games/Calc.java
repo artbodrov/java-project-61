@@ -37,7 +37,8 @@ public class Calc {
         String result = String.valueOf(number);
         return result;
     }
-    public static String ruleOfGame(){
+
+    public static String ruleOfGame() {
 
         return ruleOfGame;
     }

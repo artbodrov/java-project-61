@@ -6,6 +6,7 @@ public class Prime {
 
     private static String ruleOfGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int FIRST_RANGE = 99;
+
     public static boolean isPrime() {
         Random random = new Random();
         int number = random.nextInt(FIRST_RANGE) + 2;
@@ -29,10 +30,10 @@ public class Prime {
         } else {
             result = "no";
         }
-
         return result;
     }
-    public static String ruleOfGame(){
+
+    public static String ruleOfGame() {
 
         return ruleOfGame;
     }

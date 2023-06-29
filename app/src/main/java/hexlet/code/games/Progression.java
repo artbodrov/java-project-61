@@ -32,7 +32,8 @@ public class Progression {
         String result = String.valueOf(arr[number]);
         return result;
     }
-    public static String ruleOfGame(){
+
+    public static String ruleOfGame() {
 
         return ruleOfGame;
     }

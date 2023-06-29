@@ -7,6 +7,7 @@ public class Gcd {
     private static String ruleOfGame = "Find the greatest common divisor of given numbers.";
     private static final int FIRST_RANGE = 99;
     private static final int SECOND_RANGE = 99;
+
     public static String theGame() {
 
         Random random = new Random();
@@ -24,7 +25,8 @@ public class Gcd {
 
         return result;
     }
-    public static String ruleOfGame(){
+
+    public static String ruleOfGame() {
 
         return ruleOfGame;
     }

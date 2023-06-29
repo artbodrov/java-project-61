@@ -21,7 +21,8 @@ public class Even {
         System.out.println(number);
         return result;
     }
-    public static String ruleOfGame(){
+
+    public static String ruleOfGame() {
 
         return ruleOfGame;
     }
