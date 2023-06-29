@@ -2,8 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
-
 import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Even {
