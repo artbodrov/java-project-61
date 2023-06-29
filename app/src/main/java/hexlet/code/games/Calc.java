@@ -4,6 +4,8 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
+import static hexlet.code.Engine.startGame;
+
 public class Calc {
 
     private static String result;
@@ -51,6 +53,8 @@ public class Calc {
 
     public static void cycleOfGames() {
         boolean isCorrect = true;
+        Engine.startGame();
+        ruleOfGame();
 
         for (var i = 0; i < Engine.cycle(); i++) {
             System.out.print("Question: ");

@@ -36,33 +36,21 @@ public class App {
 
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
-            //startGame();
 
             switch (choice) {
                 case EVEN -> {
-                    startGame();
-                    Even.ruleOfGame();
                     Even.cycleOfGames();
-
                 }
                 case CALC -> {
-                    startGame();
-                    Calc.ruleOfGame();
                     Calc.cycleOfGames();
                 }
                 case GCD -> {
-                    startGame();
-                    Gcd.ruleOfGame();
                     Gcd.cycleOfGames();
                 }
                 case PROGRESSION -> {
-                    startGame();
-                    Progression.ruleOfGame();
                     Progression.cycleOfGames();
                 }
                 case PRIME -> {
-                    startGame();
-                    Prime.ruleOfGame();
                     Prime.cycleOfGames();
                 }
                 case GREET -> startGame();

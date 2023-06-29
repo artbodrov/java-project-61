@@ -42,6 +42,8 @@ public class Prime {
 
     public static void cycleOfGames() {
         boolean isCorrect = true;
+        Engine.startGame();
+        ruleOfGame();
 
         for (var i = 0; i < Engine.cycle(); i++) {
             System.out.print("Question: ");
