@@ -32,19 +32,18 @@ public class Progression {
             }
         }
         System.out.println();
-        int result = arr[number];
-        return result;
+        return arr[number];
     }
 
     public static String theGame() {
-        String result = String.valueOf(hideProgressionNumber());
-        return result;
+        return String.valueOf(hideProgressionNumber());
     }
 
     public static void ruleOfGame() {
 
         System.out.println(RULE_OF_GAME);
     }
+
     public static void cycleOfGames() {
         boolean isCorrect = true;
 

@@ -27,7 +27,6 @@ public class Prime {
 
     public static String theGame() {
         boolean flag = true;
-        String result;
         if (flag == isPrime()) {
             result = "yes";
         } else {

@@ -37,13 +37,11 @@ public class Calc {
             }
             default -> System.out.println("Oh... really?!!");
         }
-        int result = number;
-        return result;
+        return number;
     }
 
     public static String theGame() {
-        String result = String.valueOf(calculate());
-        return result;
+        return String.valueOf(calculate());
     }
 
     public static void ruleOfGame() {

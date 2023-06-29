@@ -24,14 +24,11 @@ public class Gcd {
                 num2 = num2 % num1;
             }
         }
-        int result = num1 + num2;
-
-        return result;
+        return num1 + num2;
     }
 
     public static String theGame() {
-        String result = String.valueOf(calculateDivisor());
-        return result;
+        return String.valueOf(calculateDivisor());
     }
 
     public static void ruleOfGame() {

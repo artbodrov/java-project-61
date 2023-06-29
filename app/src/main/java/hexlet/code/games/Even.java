@@ -22,7 +22,6 @@ public class Even {
     public static String theGame() {
 
         boolean flag = true;
-        String result;
         if (flag == isEven()) {
             result = "yes";
         } else {
