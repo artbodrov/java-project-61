@@ -32,7 +32,7 @@ public class Prime {
         }
         return result;
     }
-
+//
     public static String ruleOfGame() {
 
         return ruleOfGame;
