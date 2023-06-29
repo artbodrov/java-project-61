@@ -12,11 +12,8 @@ public class Even {
 
         int number = random.nextInt(FIRST_RANGE) + 1;
         System.out.println(number);
-        if (number % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return number % 2 == 0;
     }
 
     public static String theGame() {
