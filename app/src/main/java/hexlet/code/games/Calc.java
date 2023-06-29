@@ -1,10 +1,13 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 
 public class Calc {
 
-    private static String ruleOfGame = "What is the result of the expression?";
+    private static String result;
+    private static final String RULE_OF_GAME = "What is the result of the expression?";
     private static final int FIRST_RANGE = 9;
     private static final int SECOND_RANGE = 9;
 
@@ -43,8 +46,25 @@ public class Calc {
         return result;
     }
 
-    public static String ruleOfGame() {
+    public static void ruleOfGame() {
 
-        return ruleOfGame;
+        System.out.println(RULE_OF_GAME);
+    }
+
+    public static void cycleOfGames() {
+        boolean isCorrect = true;
+
+        for (var i = 0; i < Engine.cycle(); i++) {
+            System.out.print("Question: ");
+            result = theGame();
+            if (isCorrect) {
+                isCorrect = Engine.question(result);
+            } else {
+                break;
+            }
+            if (i == Engine.cycle() - 1 && isCorrect) {
+                Engine.endGame();
+            }
+        }
     }
 }

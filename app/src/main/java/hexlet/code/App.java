@@ -1,8 +1,13 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+
 import java.util.Scanner;
 
-import static hexlet.code.Engine.cycleOfGames;
 import static hexlet.code.Engine.startGame;
 
 public class App {
@@ -31,9 +36,29 @@ public class App {
 
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
+            startGame();
+
             switch (choice) {
-                case EVEN, CALC, GCD, PROGRESSION, PRIME -> {
-                    cycleOfGames(choice);
+                case EVEN -> {
+                    Even.ruleOfGame();
+                    Even.cycleOfGames();
+
+                }
+                case CALC -> {
+                    Calc.ruleOfGame();
+                    Calc.cycleOfGames();
+                }
+                case GCD -> {
+                    Gcd.ruleOfGame();
+                    Gcd.cycleOfGames();
+                }
+                case PROGRESSION -> {
+                    Progression.ruleOfGame();
+                    Progression.cycleOfGames();
+                }
+                case PRIME -> {
+                    Prime.ruleOfGame();
+                    Prime.cycleOfGames();
                 }
                 case GREET -> startGame();
                 default -> {

@@ -1,10 +1,13 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 
 public class Even {
 
-    private static String ruleOfGame = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static String result;
+    private static final String RULE_OF_GAME = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int FIRST_RANGE = 99;
 
     private static boolean isEven() {
@@ -17,6 +20,7 @@ public class Even {
     }
 
     public static String theGame() {
+
         boolean flag = true;
         String result;
         if (flag == isEven()) {
@@ -27,8 +31,25 @@ public class Even {
         return result;
     }
 
-    public static String ruleOfGame() {
+    public static void ruleOfGame() {
 
-        return ruleOfGame;
+        System.out.println(RULE_OF_GAME);
+    }
+
+    public static void cycleOfGames() {
+        boolean isCorrect = true;
+
+        for (var i = 0; i < Engine.cycle(); i++) {
+            System.out.print("Question: ");
+            result = theGame();
+            if (isCorrect) {
+                isCorrect = Engine.question(result);
+            } else {
+                break;
+            }
+            if (i == Engine.cycle() - 1 && isCorrect) {
+                Engine.endGame();
+            }
+        }
     }
 }

@@ -1,10 +1,13 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 
 public class Gcd {
 
-    private static String ruleOfGame = "Find the greatest common divisor of given numbers.";
+    private static String result;
+    private static final String RULE_OF_GAME = "Find the greatest common divisor of given numbers.";
     private static final int FIRST_RANGE = 99;
     private static final int SECOND_RANGE = 99;
 
@@ -31,8 +34,25 @@ public class Gcd {
         return result;
     }
 
-    public static String ruleOfGame() {
+    public static void ruleOfGame() {
 
-        return ruleOfGame;
+        System.out.println(RULE_OF_GAME);
+    }
+
+    public static void cycleOfGames() {
+        boolean isCorrect = true;
+
+        for (var i = 0; i < Engine.cycle(); i++) {
+            System.out.print("Question: ");
+            result = theGame();
+            if (isCorrect) {
+                isCorrect = Engine.question(result);
+            } else {
+                break;
+            }
+            if (i == Engine.cycle() - 1 && isCorrect) {
+                Engine.endGame();
+            }
+        }
     }
 }
