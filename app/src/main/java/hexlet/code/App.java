@@ -36,7 +36,7 @@ public class App {
 
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
-            startGame();
+            //startGame();
 
             switch (choice) {
                 case EVEN -> {
