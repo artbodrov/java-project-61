@@ -3,6 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class Progression {
+
+    private static String ruleOfGame = "What number is missing in the progression?";
     private static final int FIRST_RANGE = 9;
     private static final int SECOND_RANGE = 9;
     private static final int RANDOM_POSITION = 9;
@@ -29,6 +31,10 @@ public class Progression {
         System.out.println();
         String result = String.valueOf(arr[number]);
         return result;
+    }
+    public static String ruleOfGame(){
+
+        return ruleOfGame;
     }
 }
 

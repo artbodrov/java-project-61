@@ -11,9 +11,9 @@ public class App {
     private static final int GREET = 1;
     private static final int EVEN = 2;
     private static final int CALC = 3;
-    private static final  int GCD = 4;
-    private static final  int PROGRESSION = 5;
-    private static final  int PRIME = 6;
+    private static final int GCD = 4;
+    private static final int PROGRESSION = 5;
+    private static final int PRIME = 6;
 
     public static void main(String[] args) {
 
@@ -33,15 +33,12 @@ public class App {
             choice = scanner.nextInt();
             switch (choice) {
                 case EVEN, CALC, GCD, PROGRESSION, PRIME -> {
-
                     cycleOfGames(choice);
                 }
                 case GREET -> startGame();
                 default -> {
                     break;
                 }
-
-
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

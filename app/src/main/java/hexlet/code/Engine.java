@@ -10,11 +10,6 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class Engine {
-    private static String progression = "What number is missing in the progression?";
-    private static String prime = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static String gcd = "Find the greatest common divisor of given numbers.";
-    private static String calc = "What is the result of the expression?";
-    private static String even = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int EVEN = 2;
     private static final int CALC = 3;
     private static final int GCD = 4;
@@ -104,19 +99,19 @@ public class Engine {
     public static void rules(int q) {
         String mainRule = "WTF";
         if (q == EVEN) {
-            mainRule = even;
+            mainRule = Even.ruleOfGame();
         }
         if (q == CALC) {
-            mainRule = calc;
+            mainRule = Calc.ruleOfGame();
         }
         if (q == GCD) {
-            mainRule = gcd;
+            mainRule = Gcd.ruleOfGame();
         }
         if (q == PROGRESSION) {
-            mainRule = progression;
+            mainRule = Progression.ruleOfGame();
         }
         if (q == PRIME) {
-            mainRule = prime;
+            mainRule = Prime.ruleOfGame();
         }
         System.out.println(mainRule);
     }

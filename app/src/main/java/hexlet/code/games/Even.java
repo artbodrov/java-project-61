@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Even {
 
+    private static String ruleOfGame = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int FIRST_RANGE = 99;
 
     public static String theGame() {
@@ -19,5 +20,9 @@ public class Even {
         }
         System.out.println(number);
         return result;
+    }
+    public static String ruleOfGame(){
+
+        return ruleOfGame;
     }
 }

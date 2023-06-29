@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Gcd {
 
+    private static String ruleOfGame = "Find the greatest common divisor of given numbers.";
     private static final int FIRST_RANGE = 99;
     private static final int SECOND_RANGE = 99;
     public static String theGame() {
@@ -22,5 +23,9 @@ public class Gcd {
         String result = String.valueOf(num1 + num2);
 
         return result;
+    }
+    public static String ruleOfGame(){
+
+        return ruleOfGame;
     }
 }

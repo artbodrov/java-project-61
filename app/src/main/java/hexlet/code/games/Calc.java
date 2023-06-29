@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Calc {
 
+    private static String ruleOfGame = "What is the result of the expression?";
     private static final int FIRST_RANGE = 9;
     private static final int SECOND_RANGE = 9;
 
@@ -35,5 +36,9 @@ public class Calc {
         }
         String result = String.valueOf(number);
         return result;
+    }
+    public static String ruleOfGame(){
+
+        return ruleOfGame;
     }
 }
