@@ -4,8 +4,6 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
-import static hexlet.code.Engine.startGame;
-
 public class Calc {
 
     private static String result;
