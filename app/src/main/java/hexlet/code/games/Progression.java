@@ -32,7 +32,7 @@ public class Progression {
         int result = arr[number];
         return result;
     }
-//
+
     public static String theGame() {
         String result = String.valueOf(hideProgressionNumber());
         return result;

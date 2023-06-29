@@ -25,7 +25,7 @@ public class Gcd {
 
         return result;
     }
-//
+
     public static String theGame() {
         String result = String.valueOf(calculateDivisor());
         return result;

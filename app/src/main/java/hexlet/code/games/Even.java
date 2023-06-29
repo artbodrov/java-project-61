@@ -18,7 +18,7 @@ public class Even {
             return false;
         }
     }
-//
+
     public static String theGame() {
         boolean flag = true;
         String result;

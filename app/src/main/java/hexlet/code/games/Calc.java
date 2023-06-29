@@ -9,7 +9,7 @@ public class Calc {
     private static final int SECOND_RANGE = 9;
 
     private static int calculate() {
-//
+
         int number = 0;
 
         Random random = new Random();
