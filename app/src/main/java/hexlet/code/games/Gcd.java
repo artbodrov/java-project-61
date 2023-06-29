@@ -8,7 +8,7 @@ public class Gcd {
     private static final int FIRST_RANGE = 99;
     private static final int SECOND_RANGE = 99;
 
-    public static String theGame() {
+    private static int calculateDivisor() {
 
         Random random = new Random();
         int num1 = random.nextInt(FIRST_RANGE) + 1;
@@ -21,8 +21,13 @@ public class Gcd {
                 num2 = num2 % num1;
             }
         }
-        String result = String.valueOf(num1 + num2);
+        int result = num1 + num2;
 
+        return result;
+    }
+
+    public static String theGame() {
+        String result = String.valueOf(calculateDivisor());
         return result;
     }
 

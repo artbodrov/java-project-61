@@ -8,7 +8,7 @@ public class Calc {
     private static final int FIRST_RANGE = 9;
     private static final int SECOND_RANGE = 9;
 
-    public static String theGame() {
+    private static int calculate() {
 
         int number = 0;
 
@@ -34,7 +34,12 @@ public class Calc {
             }
             default -> System.out.println("Oh... really?!!");
         }
-        String result = String.valueOf(number);
+        int result = number;
+        return result;
+    }
+
+    public static String theGame() {
+        String result = String.valueOf(calculate());
         return result;
     }
 

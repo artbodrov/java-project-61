@@ -10,7 +10,7 @@ public class Progression {
     private static final int RANDOM_POSITION = 9;
     private static final int ARRAY_LENGHT = 10;
 
-    public static String theGame() {
+    public static int hideProgressionNumber() {
         Random random = new Random();
 
         int num1 = random.nextInt(FIRST_RANGE) + 1;
@@ -29,7 +29,12 @@ public class Progression {
             }
         }
         System.out.println();
-        String result = String.valueOf(arr[number]);
+        int result = arr[number];
+        return result;
+    }
+
+    public static String theGame() {
+        String result = String.valueOf(hideProgressionNumber());
         return result;
     }
 
