@@ -40,23 +40,28 @@ public class App {
 
             switch (choice) {
                 case EVEN -> {
+                    startGame();
                     Even.ruleOfGame();
                     Even.cycleOfGames();
 
                 }
                 case CALC -> {
+                    startGame();
                     Calc.ruleOfGame();
                     Calc.cycleOfGames();
                 }
                 case GCD -> {
+                    startGame();
                     Gcd.ruleOfGame();
                     Gcd.cycleOfGames();
                 }
                 case PROGRESSION -> {
+                    startGame();
                     Progression.ruleOfGame();
                     Progression.cycleOfGames();
                 }
                 case PRIME -> {
+                    startGame();
                     Prime.ruleOfGame();
                     Prime.cycleOfGames();
                 }
