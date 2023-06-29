@@ -4,18 +4,19 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
+import static hexlet.code.utils.Randomizer.getRandomInt;
+
 public class Gcd {
 
     private static String result;
     private static final String RULE_OF_GAME = "Find the greatest common divisor of given numbers.";
-    private static final int FIRST_RANGE = 99;
-    private static final int SECOND_RANGE = 99;
+    private static final int FIRST_RANGE = 1;
+    private static final int SECOND_RANGE = 100;
 
     private static int calculateDivisor() {
 
-        Random random = new Random();
-        int num1 = random.nextInt(FIRST_RANGE) + 1;
-        int num2 = random.nextInt(SECOND_RANGE) + 1;
+        int num1 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+        int num2 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         System.out.println(num1 + " " + num2);
         while (num1 != 0 && num2 != 0) {
             if (num1 > num2) {

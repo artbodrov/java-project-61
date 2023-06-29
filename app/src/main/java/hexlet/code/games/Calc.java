@@ -4,23 +4,24 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
+import static hexlet.code.utils.Randomizer.getRandomInt;
+
 public class Calc {
 
     private static String result;
     private static final String RULE_OF_GAME = "What is the result of the expression?";
-    private static final int FIRST_RANGE = 9;
-    private static final int SECOND_RANGE = 9;
+    private static final int FIRST_RANGE = 1;
+    private static final int SECOND_RANGE = 10;
 
     private static int calculate() {
 
         int number = 0;
 
-        Random random = new Random();
         String[] operators = {"+", "-", "*"};
 
         int randomOperatorIndex = new java.util.Random().nextInt(operators.length);
-        int num1 = random.nextInt(FIRST_RANGE) + 1;
-        int num2 = random.nextInt(SECOND_RANGE) + 1;
+        int num1 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+        int num2 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
 
         switch (randomOperatorIndex) {
             case 0 -> {

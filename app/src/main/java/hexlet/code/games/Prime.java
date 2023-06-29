@@ -4,15 +4,18 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
+import static hexlet.code.utils.Randomizer.getRandomInt;
+
 public class Prime {
 
     private static String result;
     private static final String RULE_OF_GAME = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static final int FIRST_RANGE = 99;
+    private static final int FIRST_RANGE = 1;
+    private static final int SECOND_RANGE = 100;
 
     private static boolean isPrime() {
-        Random random = new Random();
-        int number = random.nextInt(FIRST_RANGE) + 2;
+
+        int number = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         System.out.println(number);
         if (number <= 1) {
             return false;

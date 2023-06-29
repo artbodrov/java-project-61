@@ -4,16 +4,18 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
+import static hexlet.code.utils.Randomizer.getRandomInt;
+
 public class Even {
 
     private static String result;
     private static final String RULE_OF_GAME = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    private static final int FIRST_RANGE = 99;
+    private static final int FIRST_RANGE = 1;
+    private static final int SECOND_RANGE = 100;
 
     private static boolean isEven() {
-        Random random = new Random();
 
-        int number = random.nextInt(FIRST_RANGE) + 1;
+        int number = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         System.out.println(number);
 
         return number % 2 == 0;
