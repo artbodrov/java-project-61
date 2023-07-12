@@ -2,6 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Progression {
@@ -12,52 +15,54 @@ public class Progression {
     private static final int SECOND_RANGE = 10;
     private static final int ARRAY_LENGHT = 10;
 
-    public static int hideProgressionNumber() {
+    public static int generateNum() {
+        int num = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+        return num;
+    }
 
+    public static int[] generateProgression() {
         int startNum = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         int step = getRandomInt(FIRST_RANGE, SECOND_RANGE);
-        int hidePos = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         int[] arr = new int[ARRAY_LENGHT];
         arr[0] = startNum;
         for (var j = 1; j <= arr.length - 1; j++) {
             arr[j] = arr[j - 1] + step;
         }
+        return arr;
+    }
+
+    public static Map hideProgressionNumber() {
+        Map<String, Integer> map = new HashMap<>();
+        int hidePos = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+        int[] arr = generateProgression();
+        StringBuilder builder = new StringBuilder();
+
         for (var j = 0; j < arr.length; j++) {
             if (j == hidePos) {
-                System.out.print(".. ");
+                builder.append(".. ");
             } else {
-                System.out.print(arr[j] + " ");
+                builder.append(arr[j] + " ");
             }
         }
-        System.out.println();
-        return arr[hidePos];
+        map.put(String.valueOf(builder), arr[hidePos]);
+        return map;
     }
 
-    public static String theGame() {
-        return String.valueOf(hideProgressionNumber());
-    }
-
-    public static void ruleOfGame() {
-
-        System.out.println(RULE_OF_GAME);
+    public static Map craeteMap() {
+        Map<String, String> map = new HashMap<>();
+        for (var i = 0; i < Engine.cycle(); i++) {
+            var num1 = generateNum();
+            var num2 = generateNum();
+            Map<String, Integer> calculateDivisorMap = hideProgressionNumber();
+            for (Map.Entry<String, Integer> pair : calculateDivisorMap.entrySet()) {
+                map.put(pair.getKey(), String.valueOf(pair.getValue()));
+            }
+        }
+        return map;
     }
 
     public static void cycleOfGames() {
-        boolean isCorrect = true;
-        Engine.startGame();
-        ruleOfGame();
-
-        for (var i = 0; i < Engine.cycle(); i++) {
-            System.out.print("Question: ");
-            result = theGame();
-            if (isCorrect) {
-                isCorrect = Engine.question(result);
-            } else {
-                break;
-            }
-            if (i == Engine.cycle() - 1 && isCorrect) {
-                Engine.endGame();
-            }
-        }
+        Engine.startGame(RULE_OF_GAME);
+        Engine.mapa(craeteMap());
     }
 }

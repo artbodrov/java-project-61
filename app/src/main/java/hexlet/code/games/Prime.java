@@ -2,61 +2,46 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Prime {
 
-    private static String result;
     private static final String RULE_OF_GAME = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 100;
 
-    private static boolean isPrime() {
+    public static int generateNum() {
+        int num = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+        return num;
+    }
 
-        int number = getRandomInt(FIRST_RANGE, SECOND_RANGE);
-        System.out.println(number);
+    private static String isPrime(int number) {
+
         if (number <= 1) {
-            return false;
+            return "no";
         }
         for (int i = 2; i <= number / 2; i++) {
             if (number % i == 0) {
-                return false;
+                return "no";
             }
         }
-        return true;
+        return "yes";
     }
 
-    public static String theGame() {
-        boolean flag = true;
-        if (flag == isPrime()) {
-            result = "yes";
-        } else {
-            result = "no";
+    public static Map craeteMap() {
+        Map<String, String> map = new HashMap<>();
+        for (var i = 0; i < Engine.cycle(); i++) {
+            var number = generateNum();
+            map.put(String.valueOf(number), isPrime(number));
         }
-        return result;
-    }
-
-    public static void ruleOfGame() {
-
-        System.out.println(RULE_OF_GAME);
+        return map;
     }
 
     public static void cycleOfGames() {
-        boolean isCorrect = true;
-        Engine.startGame();
-        ruleOfGame();
-
-        for (var i = 0; i < Engine.cycle(); i++) {
-            System.out.print("Question: ");
-            result = theGame();
-            if (isCorrect) {
-                isCorrect = Engine.question(result);
-            } else {
-                break;
-            }
-            if (i == Engine.cycle() - 1 && isCorrect) {
-                Engine.endGame();
-            }
-        }
+        Engine.startGame(RULE_OF_GAME);
+        Engine.mapa(craeteMap());
     }
 }

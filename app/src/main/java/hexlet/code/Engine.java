@@ -1,16 +1,18 @@
 package hexlet.code;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class Engine {
     private static String userName;
     private static final int CYCLE = 3;
 
-    public static void startGame() {
+    public static void startGame(String ruleOfGame) {
 
         System.out.print("May I have your name? ");
         userName = Cli.inuptName();
         System.out.println("Hello, " + userName + "!");
+        System.out.println(ruleOfGame);
     }
 
     public static boolean question(String str) {
@@ -46,5 +48,23 @@ public class Engine {
 
     public static int cycle() {
         return CYCLE;
+    }
+
+    public static void mapa(Map map) {
+        boolean isCorrect = true;
+
+        Map<String, String> temp = map;
+        for (Map.Entry<String, String> pair : temp.entrySet()) {
+            if (isCorrect) {
+                System.out.print("Question: ");
+                System.out.println(pair.getKey());
+                isCorrect = question(pair.getValue());
+            } else {
+                break;
+            }
+        }
+        if (isCorrect) {
+            Engine.endGame();
+        }
     }
 }

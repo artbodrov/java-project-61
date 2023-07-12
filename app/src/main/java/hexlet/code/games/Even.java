@@ -2,6 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Even {
@@ -11,46 +14,29 @@ public class Even {
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 100;
 
-    private static boolean isEven() {
-
-        int number = getRandomInt(FIRST_RANGE, SECOND_RANGE);
-        System.out.println(number);
-
-        return number % 2 == 0;
+    public static int generateNum() {
+        int num = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+        return num;
     }
 
-    public static String theGame() {
+    private static String isEven(int number) {
 
-        boolean flag = true;
-        if (flag == isEven()) {
-            result = "yes";
-        } else {
-            result = "no";
+        if (number % 2 == 0) {
+            return "yes";
+        } else return "no";
+    }
+
+    public static Map craeteMap() {
+        Map<String, String> map = new HashMap<>();
+        for (var i = 0; i < Engine.cycle(); i++) {
+            var number = generateNum();
+            map.put(String.valueOf(number), isEven(number));
         }
-        return result;
-    }
-
-    public static void ruleOfGame() {
-
-        System.out.println(RULE_OF_GAME);
+        return map;
     }
 
     public static void cycleOfGames() {
-        boolean isCorrect = true;
-        Engine.startGame();
-        ruleOfGame();
-
-        for (var i = 0; i < Engine.cycle(); i++) {
-            System.out.print("Question: ");
-            result = theGame();
-            if (isCorrect) {
-                isCorrect = Engine.question(result);
-            } else {
-                break;
-            }
-            if (i == Engine.cycle() - 1 && isCorrect) {
-                Engine.endGame();
-            }
-        }
+        Engine.startGame(RULE_OF_GAME);
+        Engine.mapa(craeteMap());
     }
 }

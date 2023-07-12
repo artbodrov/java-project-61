@@ -19,7 +19,7 @@ public class App {
     private static final int GCD = 4;
     private static final int PROGRESSION = 5;
     private static final int PRIME = 6;
-
+    private static final String RULE_OF_GAME = "Rule of game";
     public static void main(String[] args) {
 
         System.out.println("Welcome to the Brain Games!");
@@ -53,7 +53,7 @@ public class App {
                 case PRIME -> {
                     Prime.cycleOfGames();
                 }
-                case GREET -> startGame();
+                case GREET -> startGame(RULE_OF_GAME);
                 default -> {
                     break;
                 }
