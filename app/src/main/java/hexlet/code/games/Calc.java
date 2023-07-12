@@ -40,7 +40,7 @@ public class Calc {
                 result = (num1 + " * " + num2);
                 number = num1 * num2;
             }
-            default -> result = ("Oh... really?!!");
+            default -> System.out.println("Oh... really?!!");
         }
         calculateMap.put(result, number);
         return calculateMap;

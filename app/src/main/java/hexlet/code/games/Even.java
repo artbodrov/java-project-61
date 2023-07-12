@@ -23,7 +23,9 @@ public class Even {
 
         if (number % 2 == 0) {
             return "yes";
-        } else return "no";
+        } else {
+            return "no";
+        }
     }
 
     public static Map craeteMap() {
