@@ -50,11 +50,9 @@ public class Engine {
         return CYCLE;
     }
 
-    public static void mapa(Map map) {
+    public static void mapa(Map<String, String> map) {
         boolean isCorrect = true;
-        Map<String, String> temp = map;
-
-        for (Map.Entry<String, String> pair : temp.entrySet()) {
+        for (Map.Entry<String, String> pair : map.entrySet()) {
             if (isCorrect) {
                 System.out.print("Question: ");
                 System.out.println(pair.getKey());
