@@ -14,12 +14,12 @@ public class Progression {
     private static final int SECOND_RANGE = 10;
     private static final int ARRAY_LENGHT = 10;
 
-    public static int generateNum() {
+    private static int generateNum() {
         int num = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         return num;
     }
 
-    public static int[] generateProgression() {
+    private static int[] generateProgression() {
         int startNum = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         int step = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         int[] arr = new int[ARRAY_LENGHT];
@@ -30,7 +30,7 @@ public class Progression {
         return arr;
     }
 
-    public static Map hideProgressionNumber() {
+    private static Map<String, Integer> hideProgressionNumber() {
         Map<String, Integer> map = new HashMap<>();
         int hidePos = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         int[] arr = generateProgression();
@@ -47,7 +47,7 @@ public class Progression {
         return map;
     }
 
-    public static Map craeteMap() {
+    public static Map<String, String> craeteMap() {
         Map<String, String> map = new HashMap<>();
         for (var i = 0; i < Engine.cycle(); i++) {
             var num1 = generateNum();

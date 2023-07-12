@@ -15,7 +15,7 @@ public class Engine {
         System.out.println(ruleOfGame);
     }
 
-    public static boolean question(String str) {
+    private static boolean question(String str) {
         boolean flag = true;
         String answer;
         Scanner scanner = new Scanner(System.in);
@@ -40,7 +40,7 @@ public class Engine {
         return flag;
     }
 
-    public static void endGame() {
+    private static void endGame() {
         System.out.println("Congratulations, "
                 + userName
                 + "!");

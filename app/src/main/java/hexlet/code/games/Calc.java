@@ -13,12 +13,12 @@ public class Calc {
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 10;
 
-    public static int generateNum() {
+    private static int generateNum() {
         int num = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         return num;
     }
 
-    private static Map calculate(int num1, int num2) {
+    private static Map<String, Integer> calculate(int num1, int num2) {
         Map<String, Integer> calculateMap = new HashMap<>();
         var result = "";
         var number = 0;
@@ -46,7 +46,7 @@ public class Calc {
         return calculateMap;
     }
 
-    public static Map craeteMap() {
+    private static Map<String, String> craeteMap() {
         Map<String, String> map = new HashMap<>();
         for (var i = 0; i < Engine.cycle(); i++) {
             var num1 = generateNum();

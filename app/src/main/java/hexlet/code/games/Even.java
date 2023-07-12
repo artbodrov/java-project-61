@@ -13,7 +13,7 @@ public class Even {
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 100;
 
-    public static int generateNum() {
+    private static int generateNum() {
         int num = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         return num;
     }
@@ -27,7 +27,7 @@ public class Even {
         }
     }
 
-    public static Map craeteMap() {
+    private static Map<String, String> craeteMap() {
         Map<String, String> map = new HashMap<>();
         for (var i = 0; i < Engine.cycle(); i++) {
             var number = generateNum();
