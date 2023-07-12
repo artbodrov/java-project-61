@@ -9,7 +9,6 @@ import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Even {
 
-    private static String result;
     private static final String RULE_OF_GAME = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 100;
