@@ -9,7 +9,6 @@ import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Progression {
 
-    private static String result;
     private static final String RULE_OF_GAME = "What number is missing in the progression?";
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 10;
