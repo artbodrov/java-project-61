@@ -52,8 +52,8 @@ public class Engine {
 
     public static void mapa(Map map) {
         boolean isCorrect = true;
-
         Map<String, String> temp = map;
+
         for (Map.Entry<String, String> pair : temp.entrySet()) {
             if (isCorrect) {
                 System.out.print("Question: ");
