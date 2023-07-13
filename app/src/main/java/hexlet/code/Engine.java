@@ -7,7 +7,7 @@ public class Engine {
     private static String userName;
     private static final int CYCLE = 3;
 
-    public static void startGame(String ruleOfGame) {
+    public static void helloGame(String ruleOfGame) {
 
         System.out.print("May I have your name? ");
         userName = Cli.inuptName();
@@ -15,7 +15,7 @@ public class Engine {
         System.out.println(ruleOfGame);
     }
 
-    private static boolean question(String str) {
+    private static boolean getQuestionAnswer(String str) {
         boolean flag = true;
         String answer;
         Scanner scanner = new Scanner(System.in);
@@ -46,17 +46,17 @@ public class Engine {
                 + "!");
     }
 
-    public static int cycle() {
+    public static int getTheNumberOfCycles() {
         return CYCLE;
     }
 
-    public static void mapa(Map<String, String> map) {
+    public static void gameRoundCycle(Map<String, String> map) {
         boolean isCorrect = true;
         for (Map.Entry<String, String> pair : map.entrySet()) {
             if (isCorrect) {
                 System.out.print("Question: ");
                 System.out.println(pair.getKey());
-                isCorrect = question(pair.getValue());
+                isCorrect = getQuestionAnswer(pair.getValue());
             } else {
                 break;
             }

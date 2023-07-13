@@ -14,8 +14,7 @@ public class Prime {
     private static final int SECOND_RANGE = 100;
 
     private static int generateNum() {
-        int num = getRandomInt(FIRST_RANGE, SECOND_RANGE);
-        return num;
+        return getRandomInt(FIRST_RANGE, SECOND_RANGE);
     }
 
     private static String isPrime(int number) {
@@ -31,17 +30,17 @@ public class Prime {
         return "yes";
     }
 
-    private static Map<String, String> craeteMap() {
+    private static Map<String, String> generateQuestionAnswer() {
         Map<String, String> map = new HashMap<>();
-        for (var i = 0; i < Engine.cycle(); i++) {
-            var number = generateNum();
+        for (int i = 0; i < Engine.getTheNumberOfCycles(); i++) {
+            int number = generateNum();
             map.put(String.valueOf(number), isPrime(number));
         }
         return map;
     }
 
-    public static void cycleOfGames() {
-        Engine.startGame(RULE_OF_GAME);
-        Engine.mapa(craeteMap());
+    public static void gameLaunching() {
+        Engine.helloGame(RULE_OF_GAME);
+        Engine.gameRoundCycle(generateQuestionAnswer());
     }
 }

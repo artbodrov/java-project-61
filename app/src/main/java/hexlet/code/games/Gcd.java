@@ -14,8 +14,7 @@ public class Gcd {
     private static final int SECOND_RANGE = 100;
 
     private static int generateNum() {
-        int num = getRandomInt(FIRST_RANGE, SECOND_RANGE);
-        return num;
+        return getRandomInt(FIRST_RANGE, SECOND_RANGE);
     }
 
     private static Map<String, Integer> calculateDivisor(int num1, int num2) {
@@ -34,11 +33,11 @@ public class Gcd {
         return calculateDivisorMap;
     }
 
-    private static Map<String, String> craeteMap() {
+    private static Map<String, String> generateQuestionAnswer() {
         Map<String, String> map = new HashMap<>();
-        for (var i = 0; i < Engine.cycle(); i++) {
-            var num1 = generateNum();
-            var num2 = generateNum();
+        for (int i = 0; i < Engine.getTheNumberOfCycles(); i++) {
+            int num1 = generateNum();
+            int num2 = generateNum();
             Map<String, Integer> calculateDivisorMap = calculateDivisor(num1, num2);
             for (Map.Entry<String, Integer> pair : calculateDivisorMap.entrySet()) {
                 map.put(pair.getKey(), String.valueOf(pair.getValue()));
@@ -47,8 +46,8 @@ public class Gcd {
         return map;
     }
 
-    public static void cycleOfGames() {
-        Engine.startGame(RULE_OF_GAME);
-        Engine.mapa(craeteMap());
+    public static void gameLaunching() {
+        Engine.helloGame(RULE_OF_GAME);
+        Engine.gameRoundCycle(generateQuestionAnswer());
     }
 }

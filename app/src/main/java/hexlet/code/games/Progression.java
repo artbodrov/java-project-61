@@ -15,13 +15,12 @@ public class Progression {
     private static final int ARRAY_LENGHT = 10;
 
     private static int generateNum() {
-        int num = getRandomInt(FIRST_RANGE, SECOND_RANGE);
-        return num;
+        return getRandomInt(FIRST_RANGE, SECOND_RANGE);
     }
 
     private static int[] generateProgression() {
-        int startNum = getRandomInt(FIRST_RANGE, SECOND_RANGE);
-        int step = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+        int startNum = generateNum();
+        int step = generateNum();
         int[] arr = new int[ARRAY_LENGHT];
         arr[0] = startNum;
         for (var j = 1; j <= arr.length - 1; j++) {
@@ -32,7 +31,7 @@ public class Progression {
 
     private static Map<String, Integer> hideProgressionNumber() {
         Map<String, Integer> map = new HashMap<>();
-        int hidePos = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+        int hidePos = generateNum();
         int[] arr = generateProgression();
         StringBuilder builder = new StringBuilder();
 
@@ -47,11 +46,9 @@ public class Progression {
         return map;
     }
 
-    public static Map<String, String> craeteMap() {
+    public static Map<String, String> generateQuestionAnswer() {
         Map<String, String> map = new HashMap<>();
-        for (var i = 0; i < Engine.cycle(); i++) {
-            var num1 = generateNum();
-            var num2 = generateNum();
+        for (var i = 0; i < Engine.getTheNumberOfCycles(); i++) {
             Map<String, Integer> calculateDivisorMap = hideProgressionNumber();
             for (Map.Entry<String, Integer> pair : calculateDivisorMap.entrySet()) {
                 map.put(pair.getKey(), String.valueOf(pair.getValue()));
@@ -60,8 +57,8 @@ public class Progression {
         return map;
     }
 
-    public static void cycleOfGames() {
-        Engine.startGame(RULE_OF_GAME);
-        Engine.mapa(craeteMap());
+    public static void gameLaunching() {
+        Engine.helloGame(RULE_OF_GAME);
+        Engine.gameRoundCycle(generateQuestionAnswer());
     }
 }

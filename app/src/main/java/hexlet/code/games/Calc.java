@@ -14,14 +14,13 @@ public class Calc {
     private static final int SECOND_RANGE = 10;
 
     private static int generateNum() {
-        int num = getRandomInt(FIRST_RANGE, SECOND_RANGE);
-        return num;
+        return getRandomInt(FIRST_RANGE, SECOND_RANGE);
     }
 
-    private static Map<String, Integer> calculate(int num1, int num2) {
+    private static Map<String, Integer> calculateExpression(int num1, int num2) {
         Map<String, Integer> calculateMap = new HashMap<>();
-        var result = "";
-        var number = 0;
+        String result = "";
+        int number = 0;
 
         String[] operators = {"+", "-", "*"};
 
@@ -46,12 +45,12 @@ public class Calc {
         return calculateMap;
     }
 
-    private static Map<String, String> craeteMap() {
+    private static Map<String, String> generateQuestionAnswer() {
         Map<String, String> map = new HashMap<>();
-        for (var i = 0; i < Engine.cycle(); i++) {
-            var num1 = generateNum();
-            var num2 = generateNum();
-            Map<String, Integer> calculateMap = calculate(num1, num2);
+        for (int i = 0; i < Engine.getTheNumberOfCycles(); i++) {
+            int num1 = generateNum();
+            int num2 = generateNum();
+            Map<String, Integer> calculateMap = calculateExpression(num1, num2);
             for (Map.Entry<String, Integer> pair : calculateMap.entrySet()) {
                 map.put(pair.getKey(), String.valueOf(pair.getValue()));
             }
@@ -59,9 +58,8 @@ public class Calc {
         return map;
     }
 
-    public static void cycleOfGames() {
-        Engine.startGame(RULE_OF_GAME);
-        Engine.mapa(craeteMap());
+    public static void gameLaunching() {
+        Engine.helloGame(RULE_OF_GAME);
+        Engine.gameRoundCycle(generateQuestionAnswer());
     }
 }
-

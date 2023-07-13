@@ -8,11 +8,10 @@ import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
-import static hexlet.code.Engine.startGame;
+import static hexlet.code.Engine.helloGame;
 
 public class App {
 
-    private static int choice;
     private static final int GREET = 1;
     private static final int EVEN = 2;
     private static final int CALC = 3;
@@ -20,6 +19,7 @@ public class App {
     private static final int PROGRESSION = 5;
     private static final int PRIME = 6;
     private static final String RULE_OF_GAME = "Rule of game";
+
     public static void main(String[] args) {
 
         System.out.println("Welcome to the Brain Games!");
@@ -35,25 +35,25 @@ public class App {
         try {
 
             Scanner scanner = new Scanner(System.in);
-            choice = scanner.nextInt();
+            int choice = scanner.nextInt();
 
             switch (choice) {
                 case EVEN -> {
-                    Even.cycleOfGames();
+                    Even.gameLaunching();
                 }
                 case CALC -> {
-                    Calc.cycleOfGames();
+                    Calc.gameLaunching();
                 }
                 case GCD -> {
-                    Gcd.cycleOfGames();
+                    Gcd.gameLaunching();
                 }
                 case PROGRESSION -> {
-                    Progression.cycleOfGames();
+                    Progression.gameLaunching();
                 }
                 case PRIME -> {
-                    Prime.cycleOfGames();
+                    Prime.gameLaunching();
                 }
-                case GREET -> startGame(RULE_OF_GAME);
+                case GREET -> helloGame(RULE_OF_GAME);
                 default -> {
                     break;
                 }
