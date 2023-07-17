@@ -2,7 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static hexlet.code.utils.Randomizer.getRandomInt;
@@ -17,26 +19,31 @@ public class Even {
         return getRandomInt(FIRST_RANGE, SECOND_RANGE);
     }
 
-    private static String isEven(int number) {
-
-        if (number % 2 == 0) {
-            return "yes";
-        } else {
-            return "no";
-        }
+    private static boolean isEven(int number) {
+        return (number % 2 == 0);
     }
 
     private static Map<String, String> generateQuestionAnswer() {
         Map<String, String> map = new HashMap<>();
-        for (int i = 0; i < Engine.getTheNumberOfCycles(); i++) {
-            int number = generateNum();
-            map.put(String.valueOf(number), isEven(number));
+        int number = generateNum();
+        if (isEven(number)) {
+            map.put(String.valueOf(number), "yes");
+        } else {
+            map.put(String.valueOf(number), "no");
         }
         return map;
     }
 
+    public static List<Map<String, String>> generateListQuestionAnswer() {
+        List<Map<String, String>> list = new ArrayList<>();
+        for (var i = 0; i < Engine.CYCLE; i++) {
+            list.add(generateQuestionAnswer());
+        }
+        return list;
+    }
+
     public static void gameLaunching() {
         Engine.helloGame(RULE_OF_GAME);
-        Engine.gameRoundCycle(generateQuestionAnswer());
+        Engine.gameRoundCycle(generateListQuestionAnswer());
     }
 }

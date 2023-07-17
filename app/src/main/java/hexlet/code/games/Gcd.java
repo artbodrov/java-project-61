@@ -2,7 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static hexlet.code.utils.Randomizer.getRandomInt;
@@ -17,9 +19,7 @@ public class Gcd {
         return getRandomInt(FIRST_RANGE, SECOND_RANGE);
     }
 
-    private static Map<String, Integer> calculateDivisor(int num1, int num2) {
-        Map<String, Integer> calculateDivisorMap = new HashMap<>();
-        var result = num1 + " " + num2;
+    private static int calculateDivisor(int num1, int num2) {
 
         while (num1 != 0 && num2 != 0) {
             if (num1 > num2) {
@@ -28,26 +28,30 @@ public class Gcd {
                 num2 = num2 % num1;
             }
         }
-        var number = num1 + num2;
-        calculateDivisorMap.put(result, number);
-        return calculateDivisorMap;
+        return num1 + num2;
     }
 
     private static Map<String, String> generateQuestionAnswer() {
         Map<String, String> map = new HashMap<>();
-        for (int i = 0; i < Engine.getTheNumberOfCycles(); i++) {
-            int num1 = generateNum();
-            int num2 = generateNum();
-            Map<String, Integer> calculateDivisorMap = calculateDivisor(num1, num2);
-            for (Map.Entry<String, Integer> pair : calculateDivisorMap.entrySet()) {
-                map.put(pair.getKey(), String.valueOf(pair.getValue()));
-            }
-        }
+        int num1 = generateNum();
+        int num2 = generateNum();
+        String result = num1 + " " + num2;
+      //  calculateDivisor(num1, num2);
+        map.put(result, String.valueOf(calculateDivisor(num1, num2)));
+
         return map;
+    }
+
+    private static List<Map<String, String>> generateListQuestionAnswer() {
+        List<Map<String, String>> list = new ArrayList<>();
+        for (int i = 0; i < Engine.CYCLE; i++) {
+            list.add(generateQuestionAnswer());
+        }
+        return list;
     }
 
     public static void gameLaunching() {
         Engine.helloGame(RULE_OF_GAME);
-        Engine.gameRoundCycle(generateQuestionAnswer());
+        Engine.gameRoundCycle(generateListQuestionAnswer());
     }
 }

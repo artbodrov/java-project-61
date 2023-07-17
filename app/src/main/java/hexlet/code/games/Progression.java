@@ -2,7 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static hexlet.code.utils.Randomizer.getRandomInt;
@@ -12,16 +14,15 @@ public class Progression {
     private static final String RULE_OF_GAME = "What number is missing in the progression?";
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 10;
-    private static final int ARRAY_LENGHT = 10;
+    private static final int ARRAY_LENGTH = 10;
 
     private static int generateNum() {
         return getRandomInt(FIRST_RANGE, SECOND_RANGE);
     }
 
-    private static int[] generateProgression() {
-        int startNum = generateNum();
-        int step = generateNum();
-        int[] arr = new int[ARRAY_LENGHT];
+    private static int[] generateProgression(int startNum, int step, int length) {
+
+        int[] arr = new int[length];
         arr[0] = startNum;
         for (var j = 1; j <= arr.length - 1; j++) {
             arr[j] = arr[j - 1] + step;
@@ -29,10 +30,10 @@ public class Progression {
         return arr;
     }
 
-    private static Map<String, Integer> hideProgressionNumber() {
-        Map<String, Integer> map = new HashMap<>();
+    private static Map<String, String> generateQuestionAnswer() {
+        Map<String, String> map = new HashMap<>();
         int hidePos = generateNum();
-        int[] arr = generateProgression();
+        int[] arr = generateProgression(generateNum(), generateNum(), ARRAY_LENGTH);
         StringBuilder builder = new StringBuilder();
 
         for (var j = 0; j < arr.length; j++) {
@@ -42,23 +43,21 @@ public class Progression {
                 builder.append(arr[j] + " ");
             }
         }
-        map.put(String.valueOf(builder), arr[hidePos]);
+        map.put(String.valueOf(builder), String.valueOf(arr[hidePos]));
         return map;
     }
 
-    public static Map<String, String> generateQuestionAnswer() {
-        Map<String, String> map = new HashMap<>();
-        for (var i = 0; i < Engine.getTheNumberOfCycles(); i++) {
-            Map<String, Integer> calculateDivisorMap = hideProgressionNumber();
-            for (Map.Entry<String, Integer> pair : calculateDivisorMap.entrySet()) {
-                map.put(pair.getKey(), String.valueOf(pair.getValue()));
-            }
+    public static List<Map<String, String>> generateListQuestionAnswer() {
+        List<Map<String, String>> list = new ArrayList<>();
+        for (var i = 0; i < Engine.CYCLE; i++) {
+            list.add(generateQuestionAnswer());
         }
-        return map;
+
+        return list;
     }
 
     public static void gameLaunching() {
         Engine.helloGame(RULE_OF_GAME);
-        Engine.gameRoundCycle(generateQuestionAnswer());
+        Engine.gameRoundCycle(generateListQuestionAnswer());
     }
 }

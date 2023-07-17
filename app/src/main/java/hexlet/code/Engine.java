@@ -1,11 +1,12 @@
 package hexlet.code;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Engine {
     private static String userName;
-    private static final int CYCLE = 3;
+    public static final int CYCLE = 3;
 
     public static void helloGame(String ruleOfGame) {
 
@@ -46,23 +47,22 @@ public class Engine {
                 + "!");
     }
 
-    public static int getTheNumberOfCycles() {
-        return CYCLE;
-    }
-
-    public static void gameRoundCycle(Map<String, String> map) {
+    public static void gameRoundCycle(List<Map<String, String>> list) {
         boolean isCorrect = true;
-        for (Map.Entry<String, String> pair : map.entrySet()) {
+        for (Map<String, String> map : list) {
             if (isCorrect) {
-                System.out.print("Question: ");
-                System.out.println(pair.getKey());
-                isCorrect = getQuestionAnswer(pair.getValue());
+                for (Map.Entry<String, String> pair : map.entrySet()) {
+                    System.out.print("Question: ");
+                    System.out.println(pair.getKey());
+                    isCorrect = getQuestionAnswer(pair.getValue());
+                }
             } else {
                 break;
             }
-        }
-        if (isCorrect) {
-            Engine.endGame();
+
+            if (isCorrect) {
+                Engine.endGame();
+            }
         }
     }
 }

@@ -2,7 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static hexlet.code.utils.Randomizer.getRandomInt;
@@ -17,30 +19,40 @@ public class Prime {
         return getRandomInt(FIRST_RANGE, SECOND_RANGE);
     }
 
-    private static String isPrime(int number) {
+    private static boolean isPrime(int number) {
 
         if (number <= 1) {
-            return "no";
+            return false;
         }
         for (int i = 2; i <= number / 2; i++) {
             if (number % i == 0) {
-                return "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
 
     private static Map<String, String> generateQuestionAnswer() {
         Map<String, String> map = new HashMap<>();
-        for (int i = 0; i < Engine.getTheNumberOfCycles(); i++) {
-            int number = generateNum();
-            map.put(String.valueOf(number), isPrime(number));
+        int number = generateNum();
+        if (isPrime(number)) {
+            map.put(String.valueOf(number), "yes");
+        } else {
+            map.put(String.valueOf(number), "no");
         }
         return map;
     }
 
+    public static List<Map<String, String>> generateListQuestionAnswer() {
+        List<Map<String, String>> list = new ArrayList<>();
+        for (var i = 0; i < Engine.CYCLE; i++) {
+            list.add(generateQuestionAnswer());
+        }
+        return list;
+    }
+
     public static void gameLaunching() {
         Engine.helloGame(RULE_OF_GAME);
-        Engine.gameRoundCycle(generateQuestionAnswer());
+        Engine.gameRoundCycle(generateListQuestionAnswer());
     }
 }
