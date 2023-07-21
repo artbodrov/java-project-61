@@ -62,11 +62,11 @@ public class Engine {
         int question = 0;
         int answer = 1;
 
-        for (int i = 0; i < arr.length; i++) {
+        for (String[] strings : arr) {
             if (isCorrect) {
                 System.out.print("Question: ");
-                System.out.println(arr[i][question]);
-                isCorrect = compareAnswers(arr[i][answer], name);
+                System.out.println(strings[question]);
+                isCorrect = compareAnswers(strings[answer], name);
 
             } else {
                 break;
