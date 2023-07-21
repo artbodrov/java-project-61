@@ -2,11 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Prime {
@@ -32,27 +27,32 @@ public class Prime {
         return true;
     }
 
-    private static Map<String, String> generateQuestionAnswer() {
-        Map<String, String> map = new HashMap<>();
+    private static String[] generateQuestionAnswer() {
+        String[] arr = new String[2];
         int number = generateNum();
+        int question = 0;
+        int answer = 1;
+
         if (isPrime(number)) {
-            map.put(String.valueOf(number), "yes");
+            arr[question] = String.valueOf(number);
+            arr[answer] = "yes";
         } else {
-            map.put(String.valueOf(number), "no");
+            arr[question] = String.valueOf(number);
+            arr[answer] = "no";
         }
-        return map;
+        return arr;
     }
 
-    public static List<Map<String, String>> generateListQuestionAnswer() {
-        List<Map<String, String>> list = new ArrayList<>();
-        for (var i = 0; i < Engine.CYCLE; i++) {
-            list.add(generateQuestionAnswer());
+    public static String[][] generateListQuestionAnswer() {
+        String[][] arr = new String[Engine.CYCLE][2];
+
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = generateQuestionAnswer();
         }
-        return list;
+        return arr;
     }
 
     public static void gameLaunching() {
-        Engine.helloGame(RULE_OF_GAME);
-        Engine.gameRoundCycle(generateListQuestionAnswer());
+        Engine.helloGame(RULE_OF_GAME, generateListQuestionAnswer());
     }
 }

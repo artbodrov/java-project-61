@@ -2,11 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Calc {
@@ -27,27 +22,25 @@ public class Calc {
 
         switch (randomOperatorIndex) {
             case 0 -> {
-                result = "+";
-
+                result = operators[0];
             }
             case 1 -> {
-                result = "-";
-
+                result = operators[1];
             }
             case 2 -> {
-                result = "*";
-
+                result = operators[2];
             }
             default -> System.out.println("Oh... really?!!");
         }
         return result;
     }
 
-    private static Map<String, String> generateQuestionAnswer(int num1, int num2) {
-        Map<String, String> calculateMap = new HashMap<>();
+    private static String[] generateQuestionAnswer(int num1, int num2, String expression) {
+        String[] arr = new String[2];
         String result = "";
         int number = 0;
-        String expression = generateExpression();
+        int question = 0;
+        int answer = 1;
 
         if (expression.equals("+")) {
             result = (num1 + " + " + num2);
@@ -59,23 +52,25 @@ public class Calc {
             result = (num1 + " * " + num2);
             number = num1 * num2;
         }
+        arr[question] = result;
+        arr[answer] = String.valueOf(number);
 
-        calculateMap.put(result, String.valueOf(number));
-        return calculateMap;
+        return arr;
     }
 
-    private static List<Map<String, String>> generateListQuestionAnswer() {
-        List<Map<String, String>> list = new ArrayList<>();
-        for (int i = 0; i < Engine.CYCLE; i++) {
+    private static String[][] generateListQuestionAnswer() {
+        String[][] arr = new String[Engine.CYCLE][2];
+
+        for (var i = 0; i < arr.length; i++) {
             int num1 = generateNum();
             int num2 = generateNum();
-            list.add(generateQuestionAnswer(num1, num2));
+            String expression = generateExpression();
+            arr[i] = (generateQuestionAnswer(num1, num2, expression));
         }
-        return list;
+        return arr;
     }
 
     public static void gameLaunching() {
-        Engine.helloGame(RULE_OF_GAME);
-        Engine.gameRoundCycle(generateListQuestionAnswer());
+        Engine.helloGame(RULE_OF_GAME, generateListQuestionAnswer());
     }
 }

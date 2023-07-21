@@ -8,7 +8,7 @@ import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
-import static hexlet.code.Engine.helloGame;
+import static hexlet.code.Engine.ifNoGame;
 
 public class App {
 
@@ -53,7 +53,7 @@ public class App {
                 case PRIME -> {
                     Prime.gameLaunching();
                 }
-                case GREET -> helloGame(RULE_OF_GAME);
+                case GREET -> ifNoGame(RULE_OF_GAME);
                 default -> {
                     break;
                 }

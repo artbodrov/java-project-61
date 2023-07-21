@@ -2,11 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Progression {
@@ -30,34 +25,37 @@ public class Progression {
         return arr;
     }
 
-    private static Map<String, String> generateQuestionAnswer() {
-        Map<String, String> map = new HashMap<>();
+    private static String[] generateQuestionAnswer() {
+        String[] arr = new String[2];
+        int question = 0;
+        int answer = 1;
         int hidePos = generateNum();
-        int[] arr = generateProgression(generateNum(), generateNum(), ARRAY_LENGTH);
+        int[] array = generateProgression(generateNum(), generateNum(), ARRAY_LENGTH);
         StringBuilder builder = new StringBuilder();
 
-        for (var j = 0; j < arr.length; j++) {
+        for (var j = 0; j < array.length; j++) {
             if (j == hidePos) {
                 builder.append(".. ");
             } else {
-                builder.append(arr[j] + " ");
+                builder.append(array[j] + " ");
             }
         }
-        map.put(String.valueOf(builder), String.valueOf(arr[hidePos]));
-        return map;
+        arr[question] = String.valueOf(builder);
+        arr[answer] = String.valueOf(array[hidePos]);
+
+        return arr;
     }
 
-    public static List<Map<String, String>> generateListQuestionAnswer() {
-        List<Map<String, String>> list = new ArrayList<>();
-        for (var i = 0; i < Engine.CYCLE; i++) {
-            list.add(generateQuestionAnswer());
-        }
+    public static String[][] generateListQuestionAnswer() {
+        String[][] arr = new String[Engine.CYCLE][2];
 
-        return list;
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = generateQuestionAnswer();
+        }
+        return arr;
     }
 
     public static void gameLaunching() {
-        Engine.helloGame(RULE_OF_GAME);
-        Engine.gameRoundCycle(generateListQuestionAnswer());
+        Engine.helloGame(RULE_OF_GAME, generateListQuestionAnswer());
     }
 }

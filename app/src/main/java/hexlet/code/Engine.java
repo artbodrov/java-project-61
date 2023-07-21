@@ -1,68 +1,79 @@
 package hexlet.code;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Engine {
-    private static String userName;
+
     public static final int CYCLE = 3;
 
-    public static void helloGame(String ruleOfGame) {
+    public static void ifNoGame(String ruleOfGame) {
 
         System.out.print("May I have your name? ");
-        userName = Cli.inuptName();
-        System.out.println("Hello, " + userName + "!");
+        String name = Cli.inuptName();
+        helloName(name);
         System.out.println(ruleOfGame);
     }
 
-    private static boolean getQuestionAnswer(String str) {
-        boolean flag = true;
-        String answer;
-        Scanner scanner = new Scanner(System.in);
-        answer = scanner.nextLine();
-        System.out.println("Your answer: " + answer);
+    public static void helloGame(String ruleOfGame, String[][] arr) {
 
-        if (answer.equals(String.valueOf(str))) {
+        System.out.print("May I have your name? ");
+        String name = Cli.inuptName();
+        helloName(name);
+        System.out.println(ruleOfGame);
+        gameRoundCycle(arr, name);
+    }
+
+    public static void helloName(String str) {
+        System.out.println("Hello, " + str + "!");
+    }
+
+    private static boolean compareAnswers(String answer, String name) {
+        String yourAnswer;
+        Scanner scanner = new Scanner(System.in);
+        yourAnswer = scanner.nextLine();
+        System.out.println("Your answer: " + yourAnswer);
+
+        if (yourAnswer.equals(String.valueOf(answer))) {
             System.out.println("Correct!");
+            return true;
         } else {
-            flag = false;
             System.out.println("'"
-                    + answer
+                    + yourAnswer
                     + "'"
                     + " is wrong answer ;(. Correct answer was "
                     + "'"
-                    + str
+                    + answer
                     + "'"
                     + ". Let's try again, "
-                    + userName
+                    + name
                     + "!");
+            return false;
         }
-        return flag;
     }
 
-    private static void endGame() {
+    private static void endGame(String name) {
         System.out.println("Congratulations, "
-                + userName
+                + name
                 + "!");
     }
 
-    public static void gameRoundCycle(List<Map<String, String>> list) {
+    public static void gameRoundCycle(String[][] arr, String name) {
         boolean isCorrect = true;
-        for (Map<String, String> map : list) {
+        int question = 0;
+        int answer = 1;
+
+        for (int i = 0; i < arr.length; i++) {
             if (isCorrect) {
-                for (Map.Entry<String, String> pair : map.entrySet()) {
-                    System.out.print("Question: ");
-                    System.out.println(pair.getKey());
-                    isCorrect = getQuestionAnswer(pair.getValue());
-                }
+                System.out.print("Question: ");
+                System.out.println(arr[i][question]);
+                isCorrect = compareAnswers(arr[i][answer], name);
+
             } else {
                 break;
             }
-
-            if (isCorrect) {
-                Engine.endGame();
-            }
+        }
+        if (isCorrect) {
+            endGame(name);
         }
     }
 }

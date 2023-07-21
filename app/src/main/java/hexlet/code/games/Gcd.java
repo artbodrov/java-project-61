@@ -2,11 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Gcd {
@@ -31,27 +26,29 @@ public class Gcd {
         return num1 + num2;
     }
 
-    private static Map<String, String> generateQuestionAnswer() {
-        Map<String, String> map = new HashMap<>();
+    private static String[] generateQuestionAnswer() {
+        String[] arr = new String[2];
         int num1 = generateNum();
         int num2 = generateNum();
+        int question = 0;
+        int answer = 1;
         String result = num1 + " " + num2;
-      //  calculateDivisor(num1, num2);
-        map.put(result, String.valueOf(calculateDivisor(num1, num2)));
+        arr[question] = result;
+        arr[answer] = String.valueOf(calculateDivisor(num1, num2));
 
-        return map;
+        return arr;
     }
 
-    private static List<Map<String, String>> generateListQuestionAnswer() {
-        List<Map<String, String>> list = new ArrayList<>();
-        for (int i = 0; i < Engine.CYCLE; i++) {
-            list.add(generateQuestionAnswer());
+    private static String[][] generateListQuestionAnswer() {
+        String[][] arr = new String[Engine.CYCLE][2];
+
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = generateQuestionAnswer();
         }
-        return list;
+        return arr;
     }
 
     public static void gameLaunching() {
-        Engine.helloGame(RULE_OF_GAME);
-        Engine.gameRoundCycle(generateListQuestionAnswer());
+        Engine.helloGame(RULE_OF_GAME, generateListQuestionAnswer());
     }
 }
