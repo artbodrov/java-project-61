@@ -14,7 +14,7 @@ public class Engine {
         System.out.println(ruleOfGame);
     }
 
-    public static void helloGame(String ruleOfGame, String[][] arr) {
+    public static void run(String ruleOfGame, String[][] arr) {
 
         System.out.print("May I have your name? ");
         String name = Cli.inuptName();

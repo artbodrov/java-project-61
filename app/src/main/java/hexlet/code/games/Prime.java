@@ -10,10 +10,6 @@ public class Prime {
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 100;
 
-    private static int generateNum() {
-        return getRandomInt(FIRST_RANGE, SECOND_RANGE);
-    }
-
     private static boolean isPrime(int number) {
 
         if (number <= 1) {
@@ -29,7 +25,7 @@ public class Prime {
 
     private static String[] generateQuestionAnswer() {
         String[] arr = new String[2];
-        int number = generateNum();
+        int number = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         int question = 0;
         int answer = 1;
 
@@ -53,6 +49,6 @@ public class Prime {
     }
 
     public static void gameLaunching() {
-        Engine.helloGame(RULE_OF_GAME, generateListQuestionAnswer());
+        Engine.run(RULE_OF_GAME, generateListQuestionAnswer());
     }
 }

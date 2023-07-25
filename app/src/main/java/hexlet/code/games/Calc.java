@@ -10,10 +10,6 @@ public class Calc {
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 10;
 
-    private static int generateNum() {
-        return getRandomInt(FIRST_RANGE, SECOND_RANGE);
-    }
-
     private static String generateExpression() {
         String result = "";
         String[] operators = {"+", "-", "*"};
@@ -62,8 +58,8 @@ public class Calc {
         String[][] arr = new String[Engine.CYCLE][2];
 
         for (var i = 0; i < arr.length; i++) {
-            int num1 = generateNum();
-            int num2 = generateNum();
+            int num1 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+            int num2 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
             String expression = generateExpression();
             arr[i] = (generateQuestionAnswer(num1, num2, expression));
         }
@@ -71,6 +67,6 @@ public class Calc {
     }
 
     public static void gameLaunching() {
-        Engine.helloGame(RULE_OF_GAME, generateListQuestionAnswer());
+        Engine.run(RULE_OF_GAME, generateListQuestionAnswer());
     }
 }

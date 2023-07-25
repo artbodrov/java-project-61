@@ -11,10 +11,6 @@ public class Progression {
     private static final int SECOND_RANGE = 10;
     private static final int ARRAY_LENGTH = 10;
 
-    private static int generateNum() {
-        return getRandomInt(FIRST_RANGE, SECOND_RANGE);
-    }
-
     private static int[] generateProgression(int startNum, int step, int length) {
 
         int[] arr = new int[length];
@@ -29,8 +25,11 @@ public class Progression {
         String[] arr = new String[2];
         int question = 0;
         int answer = 1;
-        int hidePos = generateNum();
-        int[] array = generateProgression(generateNum(), generateNum(), ARRAY_LENGTH);
+        int hidePos = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+        int[] array = generateProgression(
+                getRandomInt(FIRST_RANGE, SECOND_RANGE),
+                getRandomInt(FIRST_RANGE, SECOND_RANGE),
+                ARRAY_LENGTH);
         StringBuilder builder = new StringBuilder();
 
         for (var j = 0; j < array.length; j++) {
@@ -56,6 +55,6 @@ public class Progression {
     }
 
     public static void gameLaunching() {
-        Engine.helloGame(RULE_OF_GAME, generateListQuestionAnswer());
+        Engine.run(RULE_OF_GAME, generateListQuestionAnswer());
     }
 }

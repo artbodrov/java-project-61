@@ -10,10 +10,6 @@ public class Gcd {
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 100;
 
-    private static int generateNum() {
-        return getRandomInt(FIRST_RANGE, SECOND_RANGE);
-    }
-
     private static int calculateDivisor(int num1, int num2) {
 
         while (num1 != 0 && num2 != 0) {
@@ -28,8 +24,8 @@ public class Gcd {
 
     private static String[] generateQuestionAnswer() {
         String[] arr = new String[2];
-        int num1 = generateNum();
-        int num2 = generateNum();
+        int num1 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
+        int num2 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         int question = 0;
         int answer = 1;
         String result = num1 + " " + num2;
@@ -49,6 +45,6 @@ public class Gcd {
     }
 
     public static void gameLaunching() {
-        Engine.helloGame(RULE_OF_GAME, generateListQuestionAnswer());
+        Engine.run(RULE_OF_GAME, generateListQuestionAnswer());
     }
 }

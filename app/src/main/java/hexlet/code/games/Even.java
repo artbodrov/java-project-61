@@ -10,17 +10,13 @@ public class Even {
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 100;
 
-    private static int generateNum() {
-        return getRandomInt(FIRST_RANGE, SECOND_RANGE);
-    }
-
     private static boolean isEven(int number) {
         return (number % 2 == 0);
     }
 
     private static String[] generateQuestionAnswer() {
         String[] arr = new String[2];
-        int number = generateNum();
+        int number = getRandomInt(FIRST_RANGE, SECOND_RANGE);
         int question = 0;
         int answer = 1;
         if (isEven(number)) {
@@ -43,6 +39,6 @@ public class Even {
     }
 
     public static void gameLaunching() {
-        Engine.helloGame(RULE_OF_GAME, generateListQuestionAnswer());
+        Engine.run(RULE_OF_GAME, generateListQuestionAnswer());
     }
 }
