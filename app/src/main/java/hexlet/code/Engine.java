@@ -10,7 +10,8 @@ public class Engine {
 
         System.out.print("May I have your name? ");
         String name = Cli.inuptName();
-        helloName(name);
+        System.out.println("Hello, " + name + "!");
+        // helloName(name);
         System.out.println(ruleOfGame);
     }
 
@@ -18,13 +19,10 @@ public class Engine {
 
         System.out.print("May I have your name? ");
         String name = Cli.inuptName();
-        helloName(name);
+        System.out.println("Hello, " + name + "!");
+        //  helloName(name);
         System.out.println(ruleOfGame);
         gameRoundCycle(arr, name);
-    }
-
-    public static void helloName(String str) {
-        System.out.println("Hello, " + str + "!");
     }
 
     private static boolean compareAnswers(String answer, String name) {
@@ -38,23 +36,11 @@ public class Engine {
             return true;
         } else {
             System.out.println("'"
-                    + yourAnswer
-                    + "'"
-                    + " is wrong answer ;(. Correct answer was "
-                    + "'"
-                    + answer
-                    + "'"
-                    + ". Let's try again, "
-                    + name
-                    + "!");
+                    + yourAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'"
+                    + answer + "'" + ". Let's try again, "
+                    + name + "!");
             return false;
         }
-    }
-
-    private static void endGame(String name) {
-        System.out.println("Congratulations, "
-                + name
-                + "!");
     }
 
     public static void gameRoundCycle(String[][] arr, String name) {
@@ -73,7 +59,7 @@ public class Engine {
             }
         }
         if (isCorrect) {
-            endGame(name);
+            System.out.println("Congratulations, " + name + "!");
         }
     }
 }

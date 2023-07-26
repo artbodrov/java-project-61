@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.utils.Randomizer;
 
 import static hexlet.code.utils.Randomizer.getRandomInt;
 
@@ -10,48 +11,36 @@ public class Calc {
     private static final int FIRST_RANGE = 1;
     private static final int SECOND_RANGE = 10;
 
-    private static String generateExpression() {
-        String result = "";
-        String[] operators = {"+", "-", "*"};
+    private static char generateOperator() {
+        char[] operators = {'+', '-', '*'};
+        var indexOperator = Randomizer.getRandomInt(0, operators.length - 1);
 
-        int randomOperatorIndex = new java.util.Random().nextInt(operators.length);
-
-        switch (randomOperatorIndex) {
-            case 0 -> {
-                result = operators[0];
-            }
-            case 1 -> {
-                result = operators[1];
-            }
-            case 2 -> {
-                result = operators[2];
-            }
-            default -> System.out.println("Oh... really?!!");
-        }
-        return result;
+        return operators[indexOperator];
     }
 
-    private static String[] generateQuestionAnswer(int num1, int num2, String expression) {
+    private static String[] generateQuestionAnswer(int num1, int num2, char operator) {
         String[] arr = new String[2];
-        String result = "";
-        int number = 0;
         int question = 0;
         int answer = 1;
 
-        if (expression.equals("+")) {
-            result = (num1 + " + " + num2);
-            number = num1 + num2;
-        } else if (expression.equals("-")) {
-            result = (num1 + " - " + num2);
-            number = num1 - num2;
-        } else if (expression.equals("*")) {
-            result = (num1 + " * " + num2);
-            number = num1 * num2;
-        }
-        arr[question] = result;
-        arr[answer] = String.valueOf(number);
-
-        return arr;
+        return switch (operator) {
+            case '+' -> {
+                arr[question] = (num1 + " + " + num2);
+                arr[answer] = String.valueOf(num1 + num2);
+                yield arr;
+            }
+            case '-' -> {
+                arr[question] = (num1 + " - " + num2);
+                arr[answer] = String.valueOf(num1 - num2);
+                yield arr;
+            }
+            case '*' -> {
+                arr[question] = (num1 + " * " + num2);
+                arr[answer] = String.valueOf(num1 * num2);
+                yield arr;
+            }
+            default -> throw new RuntimeException("Unknown operator: " + operator);
+        };
     }
 
     private static String[][] generateListQuestionAnswer() {
@@ -60,8 +49,8 @@ public class Calc {
         for (var i = 0; i < arr.length; i++) {
             int num1 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
             int num2 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
-            String expression = generateExpression();
-            arr[i] = (generateQuestionAnswer(num1, num2, expression));
+            char operator = generateOperator();
+            arr[i] = (generateQuestionAnswer(num1, num2, operator));
         }
         return arr;
     }
