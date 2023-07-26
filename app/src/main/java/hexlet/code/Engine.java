@@ -11,7 +11,6 @@ public class Engine {
         System.out.print("May I have your name? ");
         String name = Cli.inuptName();
         System.out.println("Hello, " + name + "!");
-        // helloName(name);
         System.out.println(ruleOfGame);
     }
 
@@ -20,7 +19,6 @@ public class Engine {
         System.out.print("May I have your name? ");
         String name = Cli.inuptName();
         System.out.println("Hello, " + name + "!");
-        //  helloName(name);
         System.out.println(ruleOfGame);
         gameRoundCycle(arr, name);
     }
