@@ -45,7 +45,7 @@ public class Progression {
         return arr;
     }
 
-    public static String[][] generateListQuestionAnswer() {
+    private static String[][] generateListQuestionAnswer() {
         String[][] arr = new String[Engine.CYCLE][2];
 
         for (var i = 0; i < arr.length; i++) {
