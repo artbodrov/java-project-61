@@ -18,39 +18,40 @@ public class Calc {
         return operators[indexOperator];
     }
 
-    private static String[] generateQuestionAnswer(int num1, int num2, char operator) {
-        String[] arr = new String[2];
-        int question = 0;
-        int answer = 1;
+    private static int generateAnswer(int num1, int num2, char operator) {
 
         return switch (operator) {
-            case '+' -> {
-                arr[question] = (num1 + " + " + num2);
-                arr[answer] = String.valueOf(num1 + num2);
-                yield arr;
-            }
-            case '-' -> {
-                arr[question] = (num1 + " - " + num2);
-                arr[answer] = String.valueOf(num1 - num2);
-                yield arr;
-            }
-            case '*' -> {
-                arr[question] = (num1 + " * " + num2);
-                arr[answer] = String.valueOf(num1 * num2);
-                yield arr;
-            }
+            case '+' -> num1 + num2;
+            case '-' -> num1 - num2;
+            case '*' -> num1 * num2;
+            default -> throw new RuntimeException("Unknown operator: " + operator);
+        };
+    }
+
+    private static String generateQuestion(int num1, int num2, char operator) {
+
+        return switch (operator) {
+            case '+' -> num1 + " + " + num2;
+
+            case '-' -> num1 + " - " + num2;
+
+            case '*' -> num1 + " * " + num2;
             default -> throw new RuntimeException("Unknown operator: " + operator);
         };
     }
 
     private static String[][] generateListQuestionAnswer() {
         String[][] arr = new String[Engine.CYCLE][2];
-
+        int question = 0;
+        int answer = 1;
         for (var i = 0; i < arr.length; i++) {
             int num1 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
             int num2 = getRandomInt(FIRST_RANGE, SECOND_RANGE);
             char operator = generateOperator();
-            arr[i] = (generateQuestionAnswer(num1, num2, operator));
+            String[] array = new String[2];
+            array[question] = (generateQuestion(num1, num2, operator));
+            array[answer] = String.valueOf((generateAnswer(num1, num2, operator)));
+            arr[i] = array;
         }
         return arr;
     }

@@ -8,7 +8,7 @@ import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
-import static hexlet.code.Engine.ifNoGame;
+import static hexlet.code.Cli.ifNoGame;
 
 public class App {
 
@@ -38,25 +38,13 @@ public class App {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case EVEN -> {
-                    Even.gameLaunching();
-                }
-                case CALC -> {
-                    Calc.gameLaunching();
-                }
-                case GCD -> {
-                    Gcd.gameLaunching();
-                }
-                case PROGRESSION -> {
-                    Progression.gameLaunching();
-                }
-                case PRIME -> {
-                    Prime.gameLaunching();
-                }
+                case EVEN -> Even.gameLaunching();
+                case CALC -> Calc.gameLaunching();
+                case GCD -> Gcd.gameLaunching();
+                case PROGRESSION -> Progression.gameLaunching();
+                case PRIME -> Prime.gameLaunching();
                 case GREET -> ifNoGame(RULE_OF_GAME);
-                default -> {
-                    break;
-                }
+                default -> throw new RuntimeException("Unknown choice: " + choice);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

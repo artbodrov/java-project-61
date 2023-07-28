@@ -2,6 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.Arrays;
+
 import static hexlet.code.utils.Randomizer.getRandomInt;
 
 public class Progression {
@@ -11,13 +13,15 @@ public class Progression {
     private static final int SECOND_RANGE = 10;
     private static final int ARRAY_LENGTH = 10;
 
-    private static int[] generateProgression(int startNum, int step, int length) {
+    private static String[] generateProgression(int startNum, int step, int length) {
 
-        int[] arr = new int[length];
-        arr[0] = startNum;
+        String[] arr = new String[length];
+        arr[0] = String.valueOf(startNum);
         for (var j = 1; j <= arr.length - 1; j++) {
-            arr[j] = arr[j - 1] + step;
+            int i = Integer.parseInt(arr[j - 1]) + step;
+            arr[j] = String.valueOf(i);
         }
+        System.out.println(Arrays.toString(arr));
         return arr;
     }
 
@@ -26,21 +30,16 @@ public class Progression {
         int question = 0;
         int answer = 1;
         int hidePos = getRandomInt(FIRST_RANGE, SECOND_RANGE);
-        int[] array = generateProgression(
+        String[] array = generateProgression(
                 getRandomInt(FIRST_RANGE, SECOND_RANGE),
                 getRandomInt(FIRST_RANGE, SECOND_RANGE),
                 ARRAY_LENGTH);
-        StringBuilder builder = new StringBuilder();
-
-        for (var j = 0; j < array.length; j++) {
-            if (j == hidePos) {
-                builder.append(".. ");
-            } else {
-                builder.append(array[j] + " ");
-            }
-        }
-        arr[question] = String.valueOf(builder);
         arr[answer] = String.valueOf(array[hidePos]);
+        array[hidePos] = "..";
+        arr[question] = Arrays.toString(array)
+                .replace("[", "")
+                .replace(",", "")
+                .replace("]", "");
 
         return arr;
     }
@@ -56,5 +55,9 @@ public class Progression {
 
     public static void gameLaunching() {
         Engine.run(RULE_OF_GAME, generateListQuestionAnswer());
+    }
+
+    public static void main(String[] args) {
+        generateQuestionAnswer();
     }
 }
