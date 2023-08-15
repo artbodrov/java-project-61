@@ -9,6 +9,7 @@ public class Engine {
     public static void run(String ruleOfGame, String[][] arr) {
 
         boolean isCorrect = true;
+
         int question = 0;
         int answer = 1;
         String yourAnswer;
